@@ -42,6 +42,18 @@ Independent review has already exposed issues missed by earlier tests, including
 
 **test-verified** means the documented contract passed its automated tests and an independent re-run. It does not mean `user-tested`.
 
+## Field-derived hardening · 2026-09-28
+
+A community-reported failure pattern was translated into adversarial Lab cases instead of being copied as a feature request.
+
+**Result:** 3 defects reproduced and fixed · 37 Lab tests added · 509 Main regression tests passed · Linux/Windows CI passed · production ledger pre-check found 0 issues.
+
+The hardening covered duplicate exit protection, order/trade identity collisions, invalid market quotes, and ledger reconciliation alerts. Changes were reproduced before fixes, regression-tested, independently reviewed, and promoted from Lab toward Main only after the operating ledger passed a read-only compatibility check.
+
+This established a repeatable loop:
+
+`External failure → adversarial case → Lab reproduction → regression fix → independent review → operating-data check → Main promotion`
+
 ## Next checkpoint
 
 Move selected experiments into **user testing** with a clean environment, realistic sanitized inputs, README-only execution, and failure-path feedback.
