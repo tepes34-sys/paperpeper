@@ -54,6 +54,12 @@ This established a repeatable loop:
 
 `External failure → adversarial case → Lab reproduction → regression fix → independent review → operating-data check → Main promotion`
 
+## First-session operations check · 2026-09-29
+
+The first paired Shadow A/B paper session recorded seven candidate entries in each strategy. Entry pairs matched, no candidate was missing, and all 14 observed market-data requests succeeded. The isolated Lab ran its scheduled checks and produced a review after a manual export; its Shadow A/B samples remain open, so there is no strategy performance result yet. The Lab suite passed 532 tests (one skipped).
+
+The review also caught a path-resolution error in external check scripts and traced an interrupted export to a desktop-app restart. Both checks were rerun successfully and the review was recovered. Updated research-budget instructions are deployed; their first live usage result is still pending verification.
+
 ## Next checkpoint
 
 Move selected experiments into **user testing** with a clean environment, realistic sanitized inputs, README-only execution, and failure-path feedback.
