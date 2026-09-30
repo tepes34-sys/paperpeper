@@ -5,7 +5,7 @@
 ## Status
 
 **DESIGN FROZEN v1.0 · 2026-09-30**  
-Implementation has not started.
+Implementation follows the frozen sequence below. This public page describes design and validation gates; a completed design does not establish completed live operation.
 
 paperA exists to generate frequent, realistic market events during Korean daytime hours and weekends. It is not intended to prove crypto profitability or transfer a crypto strategy directly into U.S. equities.
 
@@ -25,6 +25,12 @@ paperA exists to generate frequent, realistic market events during Korean daytim
 | Runtime | Windows Task Scheduler, short run every 5 minutes |
 | Orders | Virtual only |
 | Account/API key | None |
+
+## September 30 work topics
+
+The latest public work note explains fixed fixtures and input contracts, experiment identity and numeric rules, evidence-based interval classification, and the boundaries of run lifecycle and event capture. Candidate frequency, automated tests and live operating observations are treated as distinct evidence.
+
+[Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
 ## Core principle
 
@@ -179,7 +185,7 @@ The implementation will live in a dedicated paperA repository. This file remains
 ---
 
 **Design:** Frozen v1.0  
-**Implementation:** Not started  
+**Implementation:** Progress and operational verification are evaluated separately  
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
