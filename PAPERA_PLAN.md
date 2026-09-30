@@ -183,3 +183,50 @@ The implementation will live in a dedicated paperA repository. This file remains
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
+## Research basis and differentiation
+
+paperA does not copy academic designs literally. It uses established ideas as a foundation, then translates them into explicit invariants, failure tests, and operating rules.
+
+### Theory-to-system mapping
+
+| Research idea | paperA interpretation |
+|---|---|
+| Idempotency / exactly-once processing | deterministic IDs, UNIQUE constraints, duplicate blocking, transactional writes |
+| Fault-tolerant state machines | NORMAL / SAFE / HALT and OPEN / QUARANTINED / CLOSED / VOID |
+| Atomicity / crash consistency | crash injection plus restart-equivalence testing |
+| Matched-pair experimental design | one shared candidate stream and Paired CLEAN samples |
+| Data-snooping / backtest-overfitting control | Design Freeze, fixed strategy_version, extend sample time instead of tuning mid-run |
+
+Representative research directions include idempotent event processing, fault-tolerant state-machine design, database crash recovery and atomicity, matched-pair experiments, White's Reality Check for data snooping, and the Probability of Backtest Overfitting literature.
+
+### What makes paperA different
+
+**1. CLEAN vs AFFECTED**  
+Operational reliability, strategy performance, and ledger truth use different populations. A fault-affected position is preserved for reliability and accounting analysis but excluded from clean strategy performance.
+
+**2. Portable Improvement Notes (PINs)**  
+A bug is not considered reusable knowledge until it is reproduced, fixed, reduced to an invariant, documented as a PIN, and independently reproduced in Paperpeper Lab using U.S.-equity fixtures.
+
+**3. Market-as-Fault-Stream**  
+The crypto market is treated primarily as a dense real-world event stream for exercising infrastructure, not as evidence of a transferable trading edge.
+
+**4. Recovery is not performance**  
+Recovered historical data may repair state and ledger continuity, but it never creates a new historical entry and does not automatically qualify as CLEAN performance.
+
+**5. Failure-to-Knowledge pipeline**  
+The development loop is:
+
+**failure → reproducible fixture → fix → invariant → PIN → independent stock-market reproduction**
+
+This turns operational incidents into portable engineering knowledge instead of one-off bug fixes.
+
+### Rule for future research additions
+
+A paper, theory, or open-source idea becomes a v1.1 candidate only if it:
+
+1. strengthens a defined invariant,
+2. can be converted into a reproducible test,
+3. has potential value beyond crypto-specific strategy behavior, and
+4. adds more verification value than implementation complexity.
+
+> **Identity:** paperA is a Shadow Reliability Lab that uses market data to test invariants, recovery, and portability—not a crypto-profitability experiment.
