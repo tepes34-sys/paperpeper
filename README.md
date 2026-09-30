@@ -16,6 +16,11 @@ The notes also cover temporary files in recurring tasks and lock verification. S
 
 ## 2. paperA
 
+**September 30 checkpoint: Design Freeze v1.0 · steps 1–4 merged · 88 tests passed.**
+
+The fixed 14-day public-market fixture contains **12,096 candles** and produced **163 entry-eligible candidates**. An offline rerun reproduced the measurement. A one-day fixture session verifies **109 runs / 108 cycles**; scheduled reliability evaluation remains a separate gate.
+
+
 A **Shadow Reliability Lab** that uses public market events to test invariants, recovery, and portability.
 
 Fixed fixtures and explicit input contracts make calculations reproducible. Experiment identity and numeric precision are checked at the boundaries. Real candles are kept separate from missing intervals, no-trade classifications require evidence, and state changes are preserved together with the Black Box events that explain them.
@@ -25,6 +30,9 @@ OS locks and database constraints serve different defensive roles. Fixture tests
 [Design and validation gates](PAPERA_PLAN.md) · [Detailed work notes](docs/WORKLOG_2026-09-30.md#2-papera)
 
 ## 3. think
+
+**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The common invariant layer still requires cross-project reproduction and actual test evidence.
+
 
 A design documentation layer that separates GPT/Claude discussions, approved decisions, and enduring conditions verified across projects.
 
@@ -36,9 +44,9 @@ Topics include time, prices, gaps, recovery, strategy inputs, event capture, loc
 
 ## Public disclosure policy
 
-This showcase is **English-only**. We publish as much verified, non-sensitive material as possible: architecture, design rationale, implementation progress, reproducible methods, test and measurement summaries, failure cases, limitations, and next verification gates.
+This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible: design rationale, implementation milestones, aggregate test results, measurements derived from public market data, failure cases, limitations, reproducible methods, and next verification gates.
 
-We clearly distinguish design approval, code implementation, automated tests, and live operating verification. Credential values, secrets, account identifiers, personal data, private discussion transcripts, and raw operating records are excluded.
+Exclude credential values, secrets, account identifiers, personal data, private discussion transcripts, and raw operating records. Clearly distinguish design approval, code implementation, automated tests, and live operating verification. Repository visibility and source releases are separate actions.
 
 ## Reading the records
 
@@ -47,3 +55,4 @@ The detailed work note is organized by the three projects. Earlier public experi
 ---
 
 Software research project. Not financial advice.
+
