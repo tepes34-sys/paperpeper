@@ -5,7 +5,7 @@
 ## Status
 
 **DESIGN FROZEN v1.0 · 2026-09-30**  
-Implementation follows the frozen sequence below. This public page describes design and validation gates; a completed design does not establish completed live operation.
+**Implementation steps 1–4 are merged; 88 tests passed at the September 30 checkpoint.** The fixed 14-day fixture contains 12,096 candles and yields 163 entry-eligible candidates, reproduced offline. Strategy, position, ledger, full safety/admin workflows, the live adapter, and scheduled reliability evaluation remain separate subsequent stages.
 
 paperA exists to generate frequent, realistic market events during Korean daytime hours and weekends. It is not intended to prove crypto profitability or transfer a crypto strategy directly into U.S. equities.
 
@@ -26,9 +26,16 @@ paperA exists to generate frequent, realistic market events during Korean daytim
 | Orders | Virtual only |
 | Account/API key | None |
 
-## September 30 work topics
+## September 30 implementation evidence
 
-The latest public work note explains fixed fixtures and input contracts, experiment identity and numeric rules, evidence-based interval classification, and the boundaries of run lifecycle and event capture. Candidate frequency, automated tests and live operating observations are treated as distinct evidence.
+- Steps 1–4: fixture measurement; schema/version/currency checks and Decimal helpers; fixture collector; run-once lifecycle, OS lock, session handling, and Black Box.
+- Offline rerun: **88 tests passed**, with **163 candidates** reproduced (BTC 54 / ETH 58 / SOL 51).
+- Fixed input: **12,096 candles** over 14 days and three markets. No intervals are missing in this fixture.
+- One-day fixture session: **109 runs / 108 cycles / 384 CONFIRMED intervals**. This is test evidence, not a completed scheduled live session.
+- Final database policy: rollback journal **DELETE**, chosen to avoid read-only sidecar-file creation.
+- Design details: twelve OPEN items resolved through the approved decision process.
+
+Candidate frequency, automated tests, and live operating observations are distinct evidence. The detailed note explains the methodology, defensive behaviors, untested boundaries, and remaining work.
 
 [Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
@@ -82,7 +89,8 @@ A position becomes permanently AFFECTED after recovery processing, stale/safe-mo
 
 - Operational reliability includes every event.
 - Strategy performance uses only CLEAN + LIVE positions under the current strategy version.
-- Ledger retains all activity including explicit VOID reversals.
+- Ledger retains gross trading events including explicit VOID reversals.
+- Fees and slippage are versioned performance assumptions applied outside the gross ledger. cost-v1 assumes 0.05% per side and 0 bps slippage; these are modeling assumptions, not observed execution costs.
 
 ## Missing intervals
 
@@ -152,10 +160,10 @@ Paperpeper Lab must independently reproduce the invariant using U.S.-equity fixt
 
 ## Planned implementation order
 
-1. Store the frozen design and measure candidate frequency from a 14-day Upbit fixture.
-2. Build schema/version/currency checks.
-3. Build fixture-based collector.
-4. Add run-once lifecycle, lock, session handling, and Black Box.
+1. **Completed at the September 30 checkpoint:** Store the frozen design and measure candidate frequency from a 14-day Upbit fixture.
+2. **Completed at the September 30 checkpoint:** Build schema/version/currency checks.
+3. **Completed at the September 30 checkpoint:** Build fixture-based collector.
+4. **Completed at the September 30 checkpoint:** Add run-once lifecycle, lock, session handling, and Black Box.
 5. Add shared candidates and pure A/B strategies.
 6. Add transactions, idempotency, LIVE/RECOVERED handling, SESSION_END.
 7. Add ledger, reconciliation, and VOID handling.
@@ -169,12 +177,9 @@ Paperpeper Lab must independently reproduce the invariant using U.S.-equity fixt
 
 ## Repository separation
 
-Planned local paths:
+Source files and runtime data are stored separately. The implementation is maintained in its own private repository; database, configuration, logs, reports, and backups stay outside the source checkout.
 
-- C:\Users\CSW\Desktop\paperA — source repository
-- C:\paperA-data — DB, config, logs, reports, backups
-
-The implementation will live in a dedicated paperA repository. This file remains a public design summary.
+This showcase publishes design and verification summaries. The complete source and test harness are not currently released here.
 
 ## Roles
 
@@ -185,7 +190,7 @@ The implementation will live in a dedicated paperA repository. This file remains
 ---
 
 **Design:** Frozen v1.0  
-**Implementation:** Progress and operational verification are evaluated separately  
+**Implementation:** Steps 1–4 merged; 88 tests passed at the September 30 checkpoint; scheduled reliability evaluation pending  
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
