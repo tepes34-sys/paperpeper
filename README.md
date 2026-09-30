@@ -1,96 +1,42 @@
-# Paperpeper
+# paperpeper · paperA · think
 
-> AI-assisted algorithmic trading R&D — paper trading, risk controls, strategy experiments, and reusable trading tools.
+> 운영 시스템, 신뢰성 실험실, 설계 대화 계층의 역할과 검증 원리를 정리하는 공개 쇼케이스입니다.
 
-## v1.5 · Current checkpoint
+[2026-09-30 작업 상세](docs/WORKLOG_2026-09-30.md) · [기존 paperpeper 실험·검증 기록](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-**7 experiments · 55/55 tests passed · 7/7 test-verified**
+## 1. paperpeper
 
-Paperpeper uses a private operating system and an isolated **GPT Lab** for small, reusable experiments. Ideas are prototyped away from the trading system, independently reviewed, and only considered further after regression testing.
+미국주식 paper trading의 운영 기준선, 분리된 Lab, 재사용 가능한 도구 실험을 다룹니다.
 
-## Experiments
+오늘 정리의 중심은 **관측 자료의 정본과 생성 시각**입니다. 실행 로그·DB·CSV·대시보드가 같은 시점을 설명하는지 확인하고, 원본 데이터 누락과 파생 보고서의 미갱신을 구분합니다. 경고가 발생하면 그 근거를 먼저 검증해 코드 변경 여부를 판단합니다.
 
-| # | Experiment | Purpose | Status |
-|---|---|---|---|
-| 001 | Trade / Ledger Inspector | Find inconsistent trade and ledger records | **test-verified** |
-| 002 | Trade Report Generator | Summarize validated completed trades | **test-verified** |
-| 003 | Trading Black Box | Preserve structured decision and event context | **test-verified** |
-| 004 | Risk Guard | Check position and cash limits before an order | **test-verified** |
-| 005 | Strategy Shadow Comparator | Compare strategies on paired trade samples | **test-verified** |
-| 006 | Crash Recovery / Reconciler | Detect differences between expected and observed state | **test-verified** |
-| 007 | Broker Adapter Kit | Define a broker-independent order boundary | **test-verified** |
+반복 작업의 임시 파일 관리와 잠금 검증도 다룹니다. 순차 재사용, 동시 획득, 프로세스 중단과 재시작은 별도의 시험으로 확인해야 합니다.
 
-## Validation loop
+[오늘의 문제·검증 원리·다음 질문](docs/WORKLOG_2026-09-30.md#1-paperpeper)
 
-```text
-Prototype
-   ↓
-Logic contract
-   ↓
-Automated tests
-   ↓
-Independent review
-   ↓
-Bug → regression test → fix
-   ↓
-Independent re-run
-   ↓
-test-verified
-```
+## 2. paperA
 
-Independent review has already exposed issues missed by earlier tests, including test-discovery failures, validation-order bugs, serialization edge cases, and symbol-normalization collisions.
+공개 시장 이벤트를 입력으로 불변식·복구력·이식성을 시험하는 **Shadow Reliability Lab**입니다.
 
-**test-verified** means the documented contract passed its automated tests and an independent re-run. It does not mean `user-tested`.
+고정 fixture와 입력 계약으로 같은 계산을 재현하고, 실험 identity와 숫자 정밀도를 관리합니다. 실제 candle과 누락 상태를 분리하고, 증거 없는 무체결 판정을 하지 않으며, 상태 변경과 이를 설명하는 Black Box 사건을 함께 보존합니다.
 
-## Field-derived hardening · 2026-09-28
+OS 잠금과 DB 제약은 서로 다른 방어 역할을 맡습니다. fixture 시험, 자동 테스트, 실제 운영 관찰도 각각의 증거로 구분합니다. 다른 시장에 옮길 때는 대상 환경에서 독립 재현합니다.
 
-A community-reported failure pattern was translated into adversarial Lab cases instead of being copied as a feature request.
+[설계와 검증 기준](PAPERA_PLAN.md) · [오늘의 상세 설명](docs/WORKLOG_2026-09-30.md#2-papera)
 
-**Result:** 3 defects reproduced and fixed · 37 Lab tests added · 509 Main regression tests passed · Linux/Windows CI passed · production ledger pre-check found 0 issues.
+## 3. think
 
-The hardening covered duplicate exit protection, order/trade identity collisions, invalid market quotes, and ledger reconciliation alerts. Changes were reproduced before fixes, regression-tested, independently reviewed, and promoted from Lab toward Main only after the operating ledger passed a read-only compatibility check.
+GPT/Claude의 논의, 승인된 결정, 여러 프로젝트에서 검증된 장기 조건을 분리하는 설계 문서 계층입니다.
 
-This established a repeatable loop:
+Think는 제안과 논의를, Decision은 승인·이유·영향 범위를, Invariant는 실패 사례와 실제 테스트 근거를 남깁니다. 의견만으로 구현 기준을 만들지 않고 결정과 프로젝트 PR을 연결합니다.
 
-`External failure → adversarial case → Lab reproduction → regression fix → independent review → operating-data check → Main promotion`
+시간·가격·누락·복구·전략 입력·기록·잠금·비용·정밀도·상태 전이를 주제별로 정리합니다. 바뀐 결정은 필요한 조항만 대체하고 과거 기록을 보존합니다. 프로젝트 사이에는 PIN으로 원리를 전달한 뒤 독립 재현과 회귀 검증을 거칩니다.
 
-## First-session operations check · 2026-09-29
+[문서 구조·설계 주제·이전 절차](docs/WORKLOG_2026-09-30.md#3-think)
 
-The first paired Shadow A/B paper session recorded seven candidate entries in each strategy. Entry pairs matched, no candidate was missing, and all 14 observed market-data requests succeeded. The isolated Lab ran its scheduled checks and produced a review after a manual export; its Shadow A/B samples remain open, so there is no strategy performance result yet. The Lab suite passed 532 tests (one skipped).
+## 기록 안내
 
-The review also caught a path-resolution error in external check scripts and traced an interrupted export to a desktop-app restart. Both checks were rerun successfully and the review was recovered. Updated research-budget instructions are deployed; their first live usage result is still pending verification.
-
-## Planned reliability checkpoint · 2026-10-03, 08:00 KST
-
-**Plan confirmed on September 30; fixes and operating-environment validation are pending.**
-
-An additional code review reproduced two cases in an isolated environment while all 28 selected existing tests passed: a newly raised breakeven stop could be triggered by a session low recorded before the stop changed, and concurrent callers could both acquire a released lock when file deletion was denied. Occurrence in the operating environment has not been established. Independent reproduction is scheduled before changes.
-
-Saturday's work order:
-
-1. **Weekly inspection:** record scheduler gaps, errors, paper trades, Shadow A/B, and report status before making changes.
-2. **Lab reproduction and fixes:** address the two cases with regression tests, plus small operational issues found during inspection.
-3. **Main/Lab comparability:** document actual configuration, code version, input period, initial account state, and change timestamps; distinguish controlled replay from live observation.
-4. **Read-only broker integration:** validate account, holdings, and balance responses against the broker app. Distinguish request/parse failures from valid zero balances. The paper ledger is not a real-account reconciliation target.
-5. **Strategy reporting:** label potentially affected trades and show both full results and results excluding matched A/B recommendation pairs. Preserve historical ledger records and learning flags.
-6. **Promotion and integration checks:** promote through a Main-based PR after validation, outside operating hours, without switching branches in the operating checkout.
-7. **GPT Lab 001–007:** recheck if time permits; otherwise defer to the following week.
-
-Validation gates include post-change price chronology for raised stops, real two-process lock tests on the mounted filesystem (including interruption and stale-lock recovery), and broker-app comparisons using the same account, currency, balance category, and observation time. Valuation differences caused by quote timing must be explained separately.
-
-Completion reports will distinguish reproduction, changes, test results, operating-PC verification, and remaining limitations. **Live order execution is outside this checkpoint's scope.** Credentials, account identifiers, raw broker responses, and private operating data remain private.
-
-## Next checkpoint
-
-Move selected experiments into **user testing** with a clean environment, realistic sanitized inputs, README-only execution, and failure-path feedback.
-
-Weekly validation will continue to turn newly discovered edge cases into regression tests.
-
-## Scope
-
-Public: experiment summaries, validation progress, sanitized demos, and intentionally released reusable tools.
-
-Private: operational source, runtime data, credentials, account data, and internal configuration.
+오늘 작업은 세 프로젝트별 상세 문서에서 읽을 수 있습니다. 이전 공개 실험·검증 기록은 위의 이전 버전 링크로 보존합니다.
 
 ---
 
