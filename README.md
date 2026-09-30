@@ -1,42 +1,42 @@
 # paperpeper · paperA · think
 
-> 운영 시스템, 신뢰성 실험실, 설계 대화 계층의 역할과 검증 원리를 정리하는 공개 쇼케이스입니다.
+> A public showcase of an operating system, a reliability lab, and a design discussion layer, with their roles and verification principles.
 
-[2026-09-30 작업 상세](docs/WORKLOG_2026-09-30.md) · [기존 paperpeper 실험·검증 기록](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
+[September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
 ## 1. paperpeper
 
-미국주식 paper trading의 운영 기준선, 분리된 Lab, 재사용 가능한 도구 실험을 다룹니다.
+U.S. equity paper trading, an isolated Lab, and experiments with reusable tools.
 
-오늘 정리의 중심은 **관측 자료의 정본과 생성 시각**입니다. 실행 로그·DB·CSV·대시보드가 같은 시점을 설명하는지 확인하고, 원본 데이터 누락과 파생 보고서의 미갱신을 구분합니다. 경고가 발생하면 그 근거를 먼저 검증해 코드 변경 여부를 판단합니다.
+The focus of today's notes is **the source of truth and the timestamp of each observation**. Execution logs, databases, CSV files, and dashboards may describe different points in time. Checks distinguish missing source data from an outdated derived report. When an alert appears, its evidence is verified before deciding whether to change the code.
 
-반복 작업의 임시 파일 관리와 잠금 검증도 다룹니다. 순차 재사용, 동시 획득, 프로세스 중단과 재시작은 별도의 시험으로 확인해야 합니다.
+The notes also cover temporary files in recurring tasks and lock verification. Sequential reuse, concurrent acquisition, process interruption, and recovery require separate tests.
 
-[오늘의 문제·검증 원리·다음 질문](docs/WORKLOG_2026-09-30.md#1-paperpeper)
+[Problems, verification principles, and next questions](docs/WORKLOG_2026-09-30.md#1-paperpeper)
 
 ## 2. paperA
 
-공개 시장 이벤트를 입력으로 불변식·복구력·이식성을 시험하는 **Shadow Reliability Lab**입니다.
+A **Shadow Reliability Lab** that uses public market events to test invariants, recovery, and portability.
 
-고정 fixture와 입력 계약으로 같은 계산을 재현하고, 실험 identity와 숫자 정밀도를 관리합니다. 실제 candle과 누락 상태를 분리하고, 증거 없는 무체결 판정을 하지 않으며, 상태 변경과 이를 설명하는 Black Box 사건을 함께 보존합니다.
+Fixed fixtures and explicit input contracts make calculations reproducible. Experiment identity and numeric precision are checked at the boundaries. Real candles are kept separate from missing intervals, no-trade classifications require evidence, and state changes are preserved together with the Black Box events that explain them.
 
-OS 잠금과 DB 제약은 서로 다른 방어 역할을 맡습니다. fixture 시험, 자동 테스트, 실제 운영 관찰도 각각의 증거로 구분합니다. 다른 시장에 옮길 때는 대상 환경에서 독립 재현합니다.
+OS locks and database constraints serve different defensive roles. Fixture tests, automated tests, and live operating observations are treated as distinct evidence. Findings transferred to another market must be reproduced independently in the target environment.
 
-[설계와 검증 기준](PAPERA_PLAN.md) · [오늘의 상세 설명](docs/WORKLOG_2026-09-30.md#2-papera)
+[Design and validation gates](PAPERA_PLAN.md) · [Detailed work notes](docs/WORKLOG_2026-09-30.md#2-papera)
 
 ## 3. think
 
-GPT/Claude의 논의, 승인된 결정, 여러 프로젝트에서 검증된 장기 조건을 분리하는 설계 문서 계층입니다.
+A design documentation layer that separates GPT/Claude discussions, approved decisions, and enduring conditions verified across projects.
 
-Think는 제안과 논의를, Decision은 승인·이유·영향 범위를, Invariant는 실패 사례와 실제 테스트 근거를 남깁니다. 의견만으로 구현 기준을 만들지 않고 결정과 프로젝트 PR을 연결합니다.
+Think records proposals and discussion. Decision records approval, rationale, and scope. Invariant records failure cases and actual test evidence. Opinions alone do not establish implementation requirements; approved decisions are connected to project pull requests.
 
-시간·가격·누락·복구·전략 입력·기록·잠금·비용·정밀도·상태 전이를 주제별로 정리합니다. 바뀐 결정은 필요한 조항만 대체하고 과거 기록을 보존합니다. 프로젝트 사이에는 PIN으로 원리를 전달한 뒤 독립 재현과 회귀 검증을 거칩니다.
+Topics include time, prices, gaps, recovery, strategy inputs, event capture, locks, costs, precision, and state transitions. Revised decisions supersede only the relevant provisions while preserving earlier records. Principles move between projects through Portable Improvement Notes, followed by independent reproduction and regression testing.
 
-[문서 구조·설계 주제·이전 절차](docs/WORKLOG_2026-09-30.md#3-think)
+[Document structure, design topics, and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
 
-## 기록 안내
+## Reading the records
 
-오늘 작업은 세 프로젝트별 상세 문서에서 읽을 수 있습니다. 이전 공개 실험·검증 기록은 위의 이전 버전 링크로 보존합니다.
+The detailed work note is organized by the three projects. Earlier public experiment and validation records remain available through the versioned link above.
 
 ---
 
