@@ -34,6 +34,12 @@ Topics include time, prices, gaps, recovery, strategy inputs, event capture, loc
 
 [Document structure, design topics, and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
 
+## Public disclosure policy
+
+This showcase is **English-only**. We publish as much verified, non-sensitive material as possible: architecture, design rationale, implementation progress, reproducible methods, test and measurement summaries, failure cases, limitations, and next verification gates.
+
+We clearly distinguish design approval, code implementation, automated tests, and live operating verification. Credential values, secrets, account identifiers, personal data, private discussion transcripts, and raw operating records are excluded.
+
 ## Reading the records
 
 The detailed work note is organized by the three projects. Earlier public experiment and validation records remain available through the versioned link above.
