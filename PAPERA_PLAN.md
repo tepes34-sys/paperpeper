@@ -1,197 +1,185 @@
-# paperA — 24/7 Shadow Market Lab
+# paperA — Design Freeze v1.0
 
-> A small, isolated crypto shadow-trading lab designed to stress-test reusable trading infrastructure without placing real orders.
+> Isolated crypto shadow-market lab for stress-testing reusable trading infrastructure. No live orders, no account integration, no API keys.
 
-## Why paperA exists
+## Status
 
-Paperpeper's U.S. equity workflow naturally has long idle windows during Korean daytime hours and weekends. paperA uses a 24/7 crypto market only as a **high-frequency source of events** so reliability logic can be exercised faster.
+**DESIGN FROZEN v1.0 · 2026-09-30**  
+Implementation has not started.
 
-The primary goal is **not** to prove that a crypto strategy is profitable or transferable to stocks. The goal is to generate enough realistic market events to test collectors, state transitions, recovery logic, reconciliation, and reporting.
+paperA exists to generate frequent, realistic market events during Korean daytime hours and weekends. It is not intended to prove crypto profitability or transfer a crypto strategy directly into U.S. equities.
 
-## Project boundary
+## Frozen V1 scope
 
-- **No live trading**
-- **No exchange account integration in V1**
-- **No API keys required in V1**
-- Public market data only
-- Separate repository/runtime/database/scheduler from Paperpeper
-- Any reusable improvement must return through Paperpeper Lab before Main
-
-## Initial scope
-
-| Area | V1 decision |
+| Area | Decision |
 |---|---|
-| Market | Crypto spot market |
-| Symbols | BTC, ETH, SOL |
-| Data | Public OHLCV / market data |
-| Candle | 5-minute |
+| Market data | Upbit Quotation REST |
+| Symbols | KRW-BTC, KRW-ETH, KRW-SOL |
+| Currency | KRW only |
+| Candle | 5-minute OHLCV |
+| Session | 09:00–18:00 KST every day |
 | Evaluation | Every 15 minutes |
+| Entry cutoff | Last new entry at 17:00; blocked from 17:15 |
+| Session close | 18:00 SESSION_END |
 | Storage | SQLite |
-| Strategies | Two deliberately simple shadow strategies |
+| Runtime | Windows Task Scheduler, short run every 5 minutes |
 | Orders | Virtual only |
-| Runtime | Korean daytime + weekends initially; 24/7 later if useful |
+| Account/API key | None |
 
-## Reference flow
+## Core principle
 
-```text
-Public Market Data
-        ↓
-Collector
-        ↓
-Freshness / Validation
-        ↓
-Candle Store
-        ↓
-Candidate / Signal Engine
-        ↓
-Shadow Entry
-    ┌───────┴───────┐
-Strategy A       Strategy B
-    ↓               ↓
-Virtual Exit / State
-        ↓
-Ledger
-        ↓
-Black Box / Reconciler
-        ↓
-Daily Report
-```
+**Reliability first, strategy second.**
 
-## What we are actually testing
+Primary targets are idempotency, restart recovery, missing-data backfill, stale-data blocking, state persistence, ledger consistency, reconciliation, Black Box capture, safe mode, quarantine, and deterministic reporting.
 
-### Reliability first
+## Session model
 
-1. Duplicate-event prevention / idempotency
-2. Restart recovery
-3. Missing-candle catch-up
-4. Stale quote rejection
-5. Persistent open-position state
-6. A/B pair consistency
-7. Ledger consistency
-8. Reconciler mismatch detection
-9. Black-box event completeness
-10. Scheduler continuity
+- 09:00: warm-up run loads recent candles for SMA20.
+- 09:15–17:00: normal evaluation and entry allowed.
+- 17:15–17:45: candidates are recorded but new entries are blocked.
+- 18:00: normal exit logic runs first; remaining positions use the real session-end candle for SESSION_END.
+- Missing session-end price → QUARANTINED. No estimated or stale fill.
 
-### Strategy second
+### Run vs cycle
 
-The first strategies should remain intentionally simple. They are traffic generators for the engine, not a claim of market edge.
+- run = one process invocation
+- operational cycle = one regular 5-minute collection/processing slot
+- warm-up run = session-start preparation
 
-Example structure:
+When the 09:00 warm-up is a separate invocation, record **109 runs/day = 1 warm-up + 108 operational cycles**. Reliability statistics must not mix these terms.
 
-- Strategy A: simple trend/volume entry with fixed virtual exit rules
-- Strategy B: same entry sample with a different exit policy
+## Shared candidate / A-B model
 
-Crypto-specific parameters are **not** promoted directly into U.S. equity trading logic.
+Entry candidates are generated once outside either strategy. Each strategy records TAKEN or an explicit SKIP reason.
+
+### Strategy A
+- shared SMA20 upward-cross candidate
+- time exit after 4 evaluation ticks / 60 minutes
+- SESSION_END
+
+### Strategy B
+- same shared candidate
+- +0.6% TP
+- -0.4% SL
+- 16-tick / 4-hour MAX_HOLD
+- SESSION_END
+
+If a strategy exits a symbol on a decision tick, same-tick re-entry is prohibited and recorded as **SKIP_SAME_TICK_EXIT**.
+
+Fair comparison uses only paired candidates where A and B both entered and both positions remained CLEAN.
+
+## Reliability vs performance
+
+Every position carries **integrity = CLEAN | AFFECTED**.
+
+A position becomes permanently AFFECTED after recovery processing, stale/safe-mode exposure, quarantine, injected-fault exposure, or a recovered exit.
+
+- Operational reliability includes every event.
+- Strategy performance uses only CLEAN + LIVE positions under the current strategy version.
+- Ledger retains all activity including explicit VOID reversals.
+
+## Missing intervals
+
+Only real exchange OHLCV belongs in the candle table. Upbit no-trade and missing-interval state is stored separately in **interval_status** with NO_TRADE / MISSING / CONFIRMED.
+
+No synthetic null-price candle is passed to strategy logic.
+
+## Safety model
+
+- NORMAL: collection yes / exits yes / entries yes
+- SAFE: collection yes / exits yes / entries no
+- HALT: collection no / exits no / entries no
+
+Gap handling:
+- G0: recovered in same run
+- G1: 1–3 missed evaluation ticks, recovered; WARNING
+- G2: 4+ missed ticks, recovered; symbol SAFE
+- G3: backfill fails; open position QUARANTINED
+
+Unknown prices are never used for forced exits. Long-unresolved quarantined positions may be kept or explicitly VOIDed with compensating ledger events.
+
+## Core invariants
+
+1. At most one entry for the same strategy, symbol, and decision tick.
+2. Every fill price comes from a real exchange candle.
+3. At most one OPEN/QUARANTINED position per strategy and symbol.
+4. Candidate generation is strategy-independent.
+5. Historical recovery never creates a new entry.
+6. AFFECTED never returns to CLEAN.
+7. paperA cannot import Paperpeper modules.
+8. Ledger mismatches are surfaced, never silently corrected.
 
 ## Validation gates
 
-The first meaningful checkpoint is operational rather than financial:
+### Track 1 — operational reliability, fixed 7-day evaluation
 
-- 7 consecutive operating days
-- 700–1,000+ decision events
-- 0 duplicate virtual orders
+- ≥99% operational-cycle success outside fault-test windows
+- ≥99.9% collection after backfill
+- 0 unresolved G3 gaps outside test windows
+- ≥1,400 decision events
+- 0 duplicate virtual entries/exits
+- duplicate-defense path observed at least once
 - 0 unexplained ledger mismatches
-- successful restart recovery
-- successful missing-data catch-up
-- stale-data blocking verified
-- failure events captured by the black box
+- reconciliation on every operational cycle
+- 0 OPEN positions after session end
+- all planned fault-injection scenarios pass
 
-After the baseline run, deliberate fault injection can be added:
+### Track 2 — strategy sample, 7–21 days
 
-- process termination during an evaluation cycle
-- repeated candle delivery
-- missing candle interval
-- delayed/stale quote
-- temporary data-source disconnect
-- malformed market payload
-- ledger/state mismatch
+- ≥30 CLEAN entries/exits per strategy
+- ≥20 paired CLEAN samples
+- Strategy B observes at least one TP and one SL
 
-## Roadmap
+If the sample is insufficient, time is extended rather than loosening strategy conditions.
 
-### Phase 1 — Minimal collector
-- Public market-data connection
-- BTC / ETH / SOL
-- 5-minute candle persistence
-- basic freshness checks
-- SQLite schema
+## Fault injection
 
-### Phase 2 — Shadow engine
-- candidate generation
-- virtual entry
-- A/B state separation
-- virtual exits
-- minimal daily report
+Planned scenarios include transactional crash, short/long network gaps, failed backfill, simulated 429/418, stale data, duplicate engine call, KILL switch, and missing SESSION_END candle. Injected events are tagged and excluded from CLEAN performance samples.
 
-### Phase 3 — Reliability layer
-- idempotency
-- restart recovery
-- catch-up
-- black-box logging
-- reconciliation
+## Transfer path to Paperpeper
 
-### Phase 4 — Scheduled operation
-- independent scheduler
-- Korean daytime + weekend operation
-- runtime health summary
-- no dependency on an active Claude/ChatGPT session
+Reusable findings move through a Portable Improvement Note (PIN):
 
-### Phase 5 — Fault injection
-- controlled crash/restart
-- duplicates
-- missing data
-- stale data
-- state disagreement
+**FOUND → REPRODUCED_A → FIXED_A → EXTRACTED → LAB_REPRODUCED → LAB_FIXED → REGRESSION_PASSED → MAIN_REVIEW → ADOPTED / REJECTED**
 
-### Phase 6 — Reuse review
-Classify findings into:
+Paperpeper Lab must independently reproduce the invariant using U.S.-equity fixtures before Main review.
 
-**Safe infrastructure candidates**
-- collector hardening
-- freshness logic
-- retry/reconnect behavior
-- idempotency
-- reconciliation
-- black-box logging
-- report generation
+## Planned implementation order
 
-**Requires stock-specific revalidation**
-- signal scoring
-- position-state rules
-- timing assumptions
+1. Store the frozen design and measure candidate frequency from a 14-day Upbit fixture.
+2. Build schema/version/currency checks.
+3. Build fixture-based collector.
+4. Add run-once lifecycle, lock, session handling, and Black Box.
+5. Add shared candidates and pure A/B strategies.
+6. Add transactions, idempotency, LIVE/RECOVERED handling, SESSION_END.
+7. Add ledger, reconciliation, and VOID handling.
+8. Add SAFE / quarantine / acknowledgement flow.
+9. Connect the public Upbit adapter.
+10. Add reports and ALERT artifacts.
+11. Add controlled fault injection.
+12. Pass restart-equivalence testing.
+13. Register Task Scheduler and run a one-day trial.
+14. Begin the seven-day reliability run; extend only strategy sampling if needed.
 
-**Do not transfer directly**
-- crypto profitability
-- crypto stop/target values
-- crypto volatility thresholds
+## Repository separation
+
+Planned local paths:
+
+- C:\Users\CSW\Desktop\paperA — source repository
+- C:\paperA-data — DB, config, logs, reports, backups
+
+The implementation will live in a dedicated paperA repository. This file remains a public design summary.
 
 ## Roles
 
-- **Claude:** implementation, tests, local runtime integration, scheduler setup
-- **ChatGPT:** architecture, validation criteria, failure-case design, independent review
+- **Claude:** implementation, tests, local runtime, Task Scheduler
+- **ChatGPT:** architecture, validation gates, failure-case review, independent review
 - **Owner:** final approval and promotion decisions
-
-## Relationship to Paperpeper
-
-paperA is a separate testbed, not a new production branch.
-
-```text
-paperA
-  ↓  reusable finding
-Paperpeper Lab
-  ↓  stock-specific regression + operating validation
-Paperpeper Main
-```
-
-A passing result in paperA is evidence that infrastructure is reusable under another event stream. It is **not** evidence that a trading strategy will work in U.S. equities.
-
-## Expected value
-
-A small V1 should already provide useful operating samples. The highest-value target is V2–V3 territory: enough recovery, idempotency, catch-up, black-box, and reconciliation logic to make paperA a practical stress environment without letting it grow into a second full trading project.
 
 ---
 
-**Status:** Planned  
-**Created:** 2026-09-30  
+**Design:** Frozen v1.0  
+**Implementation:** Not started  
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
