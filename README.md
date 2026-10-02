@@ -1,6 +1,6 @@
-# paperpeper · paperA · think
+# paperpeper · paperA · think · paperCity
 
-> A public showcase of an operating system, a reliability lab, and a design discussion layer, with their roles and verification principles.
+> A public showcase of operating systems, reliability experiments, reusable modules, design decisions, and a small cross-domain simulation prototype.
 
 [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
@@ -10,8 +10,6 @@ U.S. equity paper trading, an isolated Lab, and experiments with reusable tools.
 
 The focus of today's notes is **the source of truth and the timestamp of each observation**. Execution logs, databases, CSV files, and dashboards may describe different points in time. Checks distinguish missing source data from an outdated derived report. When an alert appears, its evidence is verified before deciding whether to change the code.
 
-The notes also cover temporary files in recurring tasks and lock verification. Sequential reuse, concurrent acquisition, process interruption, and recovery require separate tests.
-
 [Problems, verification principles, and next questions](docs/WORKLOG_2026-09-30.md#1-paperpeper)
 
 ## 2. paperA
@@ -20,12 +18,7 @@ The notes also cover temporary files in recurring tasks and lock verification. S
 
 The fixed 14-day public-market fixture contains **12,096 candles** and produced **163 entry-eligible candidates**. An offline rerun reproduced the measurement. A one-day fixture session verifies **109 runs / 108 cycles**; scheduled reliability evaluation remains a separate gate.
 
-
 A **Shadow Reliability Lab** that uses public market events to test invariants, recovery, and portability.
-
-Fixed fixtures and explicit input contracts make calculations reproducible. Experiment identity and numeric precision are checked at the boundaries. Real candles are kept separate from missing intervals, no-trade classifications require evidence, and state changes are preserved together with the Black Box events that explain them.
-
-OS locks and database constraints serve different defensive roles. Fixture tests, automated tests, and live operating observations are treated as distinct evidence. Findings transferred to another market must be reproduced independently in the target environment.
 
 [Design and validation gates](PAPERA_PLAN.md) · [Detailed work notes](docs/WORKLOG_2026-09-30.md#2-papera)
 
@@ -33,18 +26,37 @@ OS locks and database constraints serve different defensive roles. Fixture tests
 
 **September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The common invariant layer still requires cross-project reproduction and actual test evidence.
 
-
 A design documentation layer that separates GPT/Claude discussions, approved decisions, and enduring conditions verified across projects.
-
-Think records proposals and discussion. Decision records approval, rationale, and scope. Invariant records failure cases and actual test evidence. Opinions alone do not establish implementation requirements; approved decisions are connected to project pull requests.
-
-Topics include time, prices, gaps, recovery, strategy inputs, event capture, locks, costs, precision, and state transitions. Revised decisions supersede only the relevant provisions while preserving earlier records. Principles move between projects through Portable Improvement Notes, followed by independent reproduction and regression testing.
 
 [Document structure, design topics, and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
 
-## 4. paperCity — planned prototype
+## 4. GPT Lab and reusable-module pipeline
 
-paperCity is a small city-management simulation concept for testing the reusable reliability ideas outside trading.
+GPT Lab is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
+
+**Verified checkpoint: 7/7 experiments test-verified · 55/55 tests passed.**
+
+| ID | Experiment | Role |
+|---|---|---|
+| 001 | Ledger Inspector | Detect ledger and transaction inconsistencies |
+| 002 | Report Generator | Build statistics from completed trade records |
+| 003 | Trading Black Box | Preserve decisions, events, and causal context |
+| 004 | Risk Guard | Enforce pre-action safety limits |
+| 005 | Shadow Comparator | Compare paired strategy results |
+| 006 | Reconciler | Compare expected and observed state |
+| 007 | Broker Adapter | Define a broker-independent order boundary |
+
+test-verified means the defined automated contract passed independent reruns. It does **not** mean user-tested, commercially validated, or production-ready.
+
+A second discovery pass identified **008–017** as reusable-module candidates from live paper-trading operations:
+
+Scheduler Health Auditor, Data Quality Classifier, API Budget Monitor, Freshness Gate, Environment Isolation Guard, Decision Reason Analytics, Cost/Fee Simulator, CSV Contract Validator, Idempotency/Duplicate Run Detector, and Report Manifest/Artifact Registry.
+
+These are **discovery candidates only** unless separately implemented and verified.
+
+## 5. paperCity — planned prototype
+
+paperCity is a small city-management simulation concept for testing whether the reusable reliability ideas remain useful outside trading.
 
 The v0.1 target is a numerical and policy-driven city where agriculture, industry, commerce, electricity, housing, and public services interact. Successful operation expands the city; persistent failures can cause closures, population outflow, and visible contraction.
 
@@ -54,13 +66,13 @@ It is currently a **design plan, not a released game or completed integration**.
 
 ## Public disclosure policy
 
-This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible: design rationale, implementation milestones, aggregate test results, measurements derived from public market data, failure cases, limitations, reproducible methods, and next verification gates.
+This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible. Clearly distinguish design approval, code implementation, automated tests, live operating verification, discovery candidates, and future plans.
 
-Exclude credential values, secrets, account identifiers, personal data, private discussion transcripts, and raw operating records. Clearly distinguish design approval, code implementation, automated tests, and live operating verification. Repository visibility and source releases are separate actions.
+Exclude credential values, secrets, account identifiers, personal data, private discussion transcripts, and raw operating records.
 
 ## Reading the records
 
-The detailed work note is organized by the three projects. Earlier public experiment and validation records remain available through the versioned link above.
+The detailed September 30 work note covers paperpeper, paperA, and think. The current README additionally surfaces the reusable-module pipeline and the later paperCity prototype plan. Earlier public experiment and validation records remain available through the versioned link above.
 
 ---
 
