@@ -42,6 +42,16 @@ Topics include time, prices, gaps, recovery, strategy inputs, event capture, loc
 
 [Document structure, design topics, and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
 
+## 4. paperCity — planned prototype
+
+paperCity is a small city-management simulation concept for testing the reusable reliability ideas outside trading.
+
+The v0.1 target is a numerical and policy-driven city where agriculture, industry, commerce, electricity, housing, and public services interact. Successful operation expands the city; persistent failures can cause closures, population outflow, and visible contraction.
+
+It is currently a **design plan, not a released game or completed integration**. Candidate reuse experiments include Ledger Inspector for city accounting consistency, Black Box for causal event history, Reconciler for persisted-state checks, and Shadow Comparator as a later basis for policy A/B simulations.
+
+[paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
+
 ## Public disclosure policy
 
 This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible: design rationale, implementation milestones, aggregate test results, measurements derived from public market data, failure cases, limitations, reproducible methods, and next verification gates.
@@ -55,4 +65,3 @@ The detailed work note is organized by the three projects. Earlier public experi
 ---
 
 Software research project. Not financial advice.
-
