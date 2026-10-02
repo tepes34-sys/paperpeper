@@ -1,6 +1,6 @@
-# paperpeper · paperA · think · paperCity
+# paperpeper · paperA · think · paperCity · TCC
 
-> A public showcase of operating systems, reliability experiments, reusable modules, design decisions, and a small cross-domain simulation prototype.
+> A public showcase of operating systems, reliability experiments, reusable modules, design decisions, a small cross-domain simulation prototype, and a transaction-checking product candidate.
 
 [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
@@ -64,6 +64,16 @@ It is currently a **design plan, not a released game or completed integration**.
 
 [paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
+## 6. TCC — Transaction Consistency Checker
+
+**October 2, 2026 checkpoint: selected as the first paid-product candidate; implementation has not started.** A dedicated local directory exists but contains no project files yet.
+
+TCC is a proposed standalone tool for finding inconsistencies in transaction CSV files and explaining the findings. Candidate checks include duplicate records, malformed rows, non-finite numbers, and discrepancies in totals or reconstructed ledger state.
+
+The next milestones are to define the v0.1 scope and input/output contract, assess reuse of Ledger Inspector, and build a runnable CLI with synthetic examples and tests from a fresh installation. These are planned capabilities; no TCC release, completed tests, external user validation, pricing, or revenue is claimed.
+
+[TCC product direction and validation gates](docs/TCC_V0_1_PLAN.md)
+
 ## Public disclosure policy
 
 This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible. Clearly distinguish design approval, code implementation, automated tests, live operating verification, discovery candidates, and future plans.
@@ -72,7 +82,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The detailed September 30 work note covers paperpeper, paperA, and think. The current README additionally surfaces the reusable-module pipeline and the later paperCity prototype plan. Earlier public experiment and validation records remain available through the versioned link above.
+The detailed September 30 work note covers paperpeper, paperA, and think. The current README additionally surfaces the reusable-module pipeline, the later paperCity prototype plan, and the October 2 TCC planning checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
 
 ---
 
