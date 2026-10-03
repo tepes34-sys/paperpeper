@@ -2,21 +2,25 @@
 
 > A public showcase of operating systems, reliability experiments, reusable modules, design decisions, a small cross-domain simulation prototype, and a transaction-checking product candidate.
 
-[September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
+[October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
 ## 1. paperpeper
 
 U.S. equity paper trading, an isolated Lab, and experiments with reusable tools.
 
-The focus of today's notes is **the source of truth and the timestamp of each observation**. Execution logs, databases, CSV files, and dashboards may describe different points in time. Checks distinguish missing source data from an outdated derived report. When an alert appears, its evidence is verified before deciding whether to change the code.
+The October 3 review focuses on **measurement integrity, recovery, and the timestamp of each observation**. Execution logs, databases, CSV files, and dashboards may describe different points in time. Checks distinguish missing source data from an outdated derived report. When an alert appears, its evidence is verified before deciding whether to change the code.
 
-[Problems, verification principles, and next questions](docs/WORKLOG_2026-09-30.md#1-paperpeper)
+Quote-evidence, request-accounting, and monitoring changes were reviewed and merged. Checkpoint recovery, target-close validation, and performance-review write safety remain follow-up gates. Saved deployments and CI are recorded separately from normal scheduled-run evidence.
+
+[Current review and remaining gates](docs/WORKLOG_2026-10-03.md#1-paperpeper)
 
 ## 2. paperA
 
-**September 30 checkpoint: Design Freeze v1.0 · steps 1–4 merged · 88 tests passed.**
+**October 3 checkpoint: Design Freeze v1.0 · steps 1–4 merged · 88 baseline tests independently reproduced.**
 
 The fixed 14-day public-market fixture contains **12,096 candles** and produced **163 entry-eligible candidates**. An offline rerun reproduced the measurement. A one-day fixture session verifies **109 runs / 108 cycles**; scheduled reliability evaluation remains a separate gate.
+
+Two numerical boundary issues were reproduced and failure checks prepared; repairs and post-repair regression are pending. Fixture success does not establish scheduled operation or A/B integration.
 
 A **Shadow Reliability Lab** that uses public market events to test invariants, recovery, and portability.
 
@@ -24,7 +28,7 @@ A **Shadow Reliability Lab** that uses public market events to test invariants, 
 
 ## 3. think
 
-**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The common invariant layer still requires cross-project reproduction and actual test evidence.
+**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The October 3 numerical-contract proposal defines seven review principles for paperA and TCC; it remains proposed. The common invariant layer still requires cross-project reproduction and actual test evidence.
 
 A design documentation layer that separates GPT/Claude discussions, approved decisions, and enduring conditions verified across projects.
 
@@ -34,7 +38,7 @@ A design documentation layer that separates GPT/Claude discussions, approved dec
 
 GPT Lab is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**Verified checkpoint: 7/7 experiments test-verified · 55/55 tests passed.**
+**October 3 independent rerun: 7/7 experiments · 56/56 tests passed.** The earlier checkpoint was 55 tests. Explicit experiment CI coverage remains a separate follow-up.
 
 | ID | Experiment | Role |
 |---|---|---|
@@ -60,17 +64,17 @@ paperCity is a small city-management simulation concept for testing whether the 
 
 The v0.1 target is a numerical and policy-driven city where agriculture, industry, commerce, electricity, housing, and public services interact. Successful operation expands the city; persistent failures can cause closures, population outflow, and visible contraction.
 
-It is currently a **design plan, not a released game or completed integration**. Candidate reuse experiments include Ledger Inspector for city accounting consistency, Black Box for causal event history, Reconciler for persisted-state checks, and Shadow Comparator as a later basis for policy A/B simulations.
+The October 3 Core Engine proposal adds state/unit, time-boundary, error, and deterministic-progression contracts with authored validation cases. It remains **a design proposal; implementation and executed engine tests are pending**. Candidate reuse experiments include Ledger Inspector for city accounting consistency, Black Box for causal event history, Reconciler for persisted-state checks, and Shadow Comparator as a later basis for policy A/B simulations.
 
 [paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
 ## 6. TCC — Transaction Consistency Checker
 
-**October 2, 2026 checkpoint: selected as the first paid-product candidate; implementation has not started.** A dedicated local directory exists but contains no project files yet.
+**October 3 checkpoint: v0.1-r1 contract, 17 synthetic examples, and a 55-case acceptance harness prepared; core and CLI remain unimplemented.** The artifact audit and harness's own 10 tests passed. TCC product acceptance and fresh installation remain unrun.
 
 TCC is a proposed standalone tool for finding inconsistencies in transaction CSV files and explaining the findings. Candidate checks include duplicate records, malformed rows, non-finite numbers, and discrepancies in totals or reconstructed ledger state.
 
-The next milestones are to define the v0.1 scope and input/output contract, assess reuse of Ledger Inspector, and build a runnable CLI with synthetic examples and tests from a fresh installation. These are planned capabilities; no TCC release, completed tests, external user validation, pricing, or revenue is claimed.
+The next milestones are to implement the core and CLI against the prepared contract, run actual product acceptance, and verify a fresh installation. These are planned capabilities; no TCC release, completed product validation, external user validation, pricing, or revenue is claimed.
 
 [TCC product direction and validation gates](docs/TCC_V0_1_PLAN.md)
 
@@ -82,7 +86,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The detailed September 30 work note covers paperpeper, paperA, and think. The current README additionally surfaces the reusable-module pipeline, the later paperCity prototype plan, and the October 2 TCC planning checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
+The October 3 work note records the current review, offline evidence, unresolved defects, and revised next gates across all tracks. The September 30 note preserves the earlier paperpeper, paperA, and think checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
 
 ---
 
