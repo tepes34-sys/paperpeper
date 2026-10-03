@@ -58,15 +58,15 @@ Scheduler Health Auditor, Data Quality Classifier, API Budget Monitor, Freshness
 
 These are **discovery candidates only** unless separately implemented and verified.
 
-## 5. paperCity — planned prototype
+## 5. paperCity — simulation experiment
 
-paperCity is a small city-management simulation concept for testing whether the reusable reliability ideas remain useful outside trading.
+paperCity is a small city-management simulation exploring whether reliability ideas remain useful outside trading.
 
-The v0.1 target is a numerical and policy-driven city where agriculture, industry, commerce, electricity, housing, and public services interact. Successful operation expands the city; persistent failures can cause closures, population outflow, and visible contraction.
+**October 3 implementation checkpoint: Core and nine facilities/economy types implemented locally; 667 product test executions passed (544 Core + 123 Phase2).** The 12 facilities authored scenarios matched actual results. A 12-condition facilities long-run matrix and a fresh Core performance recheck passed provisional development budgets.
 
-The October 3 Core Engine proposal adds state/unit, time-boundary, error, and deterministic-progression contracts with authored validation cases. It remains **a design proposal; implementation and executed engine tests are pending**. Candidate reuse experiments include Ledger Inspector for city accounting consistency, Black Box for causal event history, Reconciler for persisted-state checks, and Shadow Comparator as a later basis for policy A/B simulations.
+The engine implements construction/enabled-state commands, road connectivity, integer power/labor allocation, food delivery and consumption, service effects, happiness/pollution, and monthly tax/maintenance settlement. The current population is fixed and balance values are synthetic. Growth/decline, policies, persistence, City Black Box integration, UI, and playtesting remain future gates.
 
-[paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
+[Implementation, regressions, measurements, and limits](docs/PAPERCITY_IMPLEMENTATION_2026-10-03.md) · [paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
 ## 6. TCC — Transaction Consistency Checker
 
@@ -86,7 +86,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The October 3 work note records the current review, offline evidence, unresolved defects, and revised next gates across all tracks. The September 30 note preserves the earlier paperpeper, paperA, and think checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
+The October 3 work note records the review, offline evidence, unresolved defects, and revised next gates across all tracks, including the later paperCity Core/facilities implementation checkpoint. The September 30 note preserves the earlier paperpeper, paperA, and think checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
 
 ---
 
