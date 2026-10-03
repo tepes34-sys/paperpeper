@@ -1,6 +1,6 @@
 # paperCity v0.1 — Prototype Plan
 
-**Status:** Core Engine design proposal prepared; implementation and executed engine tests pending.
+**Status:** Core and nine facilities/economy types implemented and verified locally; 667 product test executions passed. Growth, policies, persistence, and UI remain planned. This is a simulation experiment, not a released game.
 
 paperCity is a small city-management simulation concept designed to test whether the reusable reliability modules developed around paperpeper can remain useful outside trading.
 
@@ -8,15 +8,17 @@ The game is not intended to compete with large city builders. Its first question
 
 > Can a city feel alive when the player mainly makes numerical and policy decisions, while growth and decline become visible on the map?
 
-## October 3 Core Engine design checkpoint
+## October 3 implementation checkpoint
 
-The design proposal separates a pure daily state transition from rendering, persistence, network access, and wall-clock speed controls. It specifies state fields and integer units, daily/monthly boundaries, command ordering, errors, and deterministic progression.
+The earlier design-only checkpoint has progressed through Core implementation, contract review, facilities/economy design, and facilities implementation. Core owns strict state/configuration boundaries, integer resource units, deterministic daily/monthly progression, records, and declared failure preservation.
 
-Sixteen validation cases and ten authored expected-value examples are prepared. Document, JSON, and arithmetic checks validate the artifacts; they are not engine test execution or game-balance evidence.
+Nine facilities, construction/enabled-state commands, simple road connectivity, power/labor allocation, actual food flows, services, happiness/pollution, and monthly tax/maintenance are implemented. **667 product test executions passed (544 Core + 123 facilities/economy).** Ten Core authored scenarios and all 12 facilities expected scenarios were compared with actual engine outputs.
 
-Initial play values and open design decisions remain unresolved. Facilities, policy effects, save/restore, UI, and reusable-module integration remain later implementation gates. The project stays a low-priority design track while operating repairs and the TCC runnable version take priority.
+Twelve facilities performance conditions and a fresh 12-timing/four-memory Core recheck passed provisional local-development budgets. Final state digests and record counts matched across retained and consumed record paths. These checks do not validate game balance, persistent recovery, a playable interface, or a release. Population is fixed in the current experiment.
 
-[October 3 work and remaining gates](WORKLOG_2026-10-03.md#6-papercity)
+The next functional gate is Phase3 growth/decline design. Initial play values, policies, persistence, City Black Box integration, and UI remain later work. The original prototype direction below remains a target wherever these capabilities are not yet implemented.
+
+[Implementation, regression findings, and measurements](PAPERCITY_IMPLEMENTATION_2026-10-03.md) · [October 3 worklog](WORKLOG_2026-10-03.md#6-papercity)
 
 ## Core loop
 
@@ -86,7 +88,7 @@ Candidate baseline:
 - facility operation evaluated daily
 - taxes, maintenance, migration, and growth/decline evaluated monthly
 
-This is a design target, not a fixed implementation contract yet.
+The simulation now has an explicit configurable day/month contract. Wall-clock speed controls, migration, growth, and the playable interface remain design targets.
 
 ## Visual direction
 
