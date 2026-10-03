@@ -39,6 +39,16 @@ Candidate frequency, automated tests, and live operating observations are distin
 
 [Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
+## October 3 follow-up review
+
+The earlier 88-test baseline, 12,096-candle fixture, and 163 candidates were reproduced offline. Additional synthetic checks identified unresolved validation of non-finite prices and the carry input, plus dependence of SMA calculations on the caller's Decimal context.
+
+Portable Improvement Notes and failure checks are prepared. Repairs, post-repair regression, and a separate review are pending. These findings do not establish fixture contamination or live operating harm.
+
+Next: reproduce the failure checks, make the minimal repairs, rerun the baseline and fixture comparisons, then review the change independently. Step 5 begins with a plan for shared candidate storage and A/B integration. Scheduled reliability evaluation remains pending.
+
+[October 3 evidence and remaining gates](docs/WORKLOG_2026-10-03.md#2-papera)
+
 ## Core principle
 
 **Reliability first, strategy second.**
