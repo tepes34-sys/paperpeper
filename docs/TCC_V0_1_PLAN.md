@@ -1,19 +1,22 @@
 # TCC — Transaction Consistency Checker
 
-**Checkpoint:** October 2, 2026
+**Checkpoint:** October 3, 2026
 
-**Status:** selected product candidate; implementation not started; commercial demand unvalidated.
+**Status:** v0.1-r1 technical contract and acceptance preparation complete; product core and CLI unimplemented; commercial demand unvalidated.
 
 TCC is the first paid-product candidate selected from the reusable-tool experiments. Its proposed purpose is to help a user identify inconsistencies in transaction CSV files and understand what caused each finding.
 
 ## Current evidence
 
-- The product candidate and name have been selected.
-- A dedicated local project directory exists and is empty.
-- No TCC source code, CLI, sample files, automated tests, or release is present in that directory.
-- The v0.1 scope, supported CSV schema, output contract, and diagnostic reason codes still need to be defined.
+- The local project contains a technical contract, design/reuse notes, and 17 synthetic CSV/expected-JSON pairs.
+- Ledger Inspector was reviewed as a source of patterns; its original test result is not a TCC product test.
+- An external acceptance harness contains 55 cases: 17 examples and 38 additional boundaries.
+- The 17-example artifact audit and the harness's own 10 tests passed.
+- TCC product acceptance is **NOT_RUN**. No core, CLI, package, or fresh-install result is available.
 
-Creating the directory and publishing this plan do not establish a working product.
+Expected JSON describes the contract; it is not product output. Contract and sample preparation must be handed over with their actual versions.
+
+[October 3 work and validation notes](WORKLOG_2026-10-03.md#5-tcc)
 
 ## Proposed problem and checks
 
@@ -29,11 +32,11 @@ Candidate checks include:
 | Ledger consistency | Do reconstructed balances or positions agree with the provided expectations? |
 | Diagnostics | Can the user locate the affected record and understand the reason? |
 
-This table describes the proposed direction, not a frozen contract or implemented feature set. The supported schema, accounting rules, and comparison inputs must be explicit before implementation.
+The local v0.1-r1 technical contract defines the supported schema, accounting rules, and comparison inputs. The table summarizes the intended behavior; product implementation and execution remain pending.
 
 ## Reuse candidate: Ledger Inspector
 
-GPT Lab experiment 001, Ledger Inspector, is a candidate source for reusable validation and ledger-reconstruction logic. Its earlier automated test checkpoint is documented in the [showcase module pipeline](../README.md#4-gpt-lab-and-reusable-module-pipeline).
+GPT Lab experiment 001, Ledger Inspector, was reviewed for reuse. Reading, Decimal validation, and test organization inform the design; the trading-ledger core is not directly reused under TCC's different contract. Its earlier automated test checkpoint is documented in the [showcase module pipeline](../README.md#4-gpt-lab-and-reusable-module-pipeline).
 
 That checkpoint applies to the original experiment and its defined contract. It does not establish that TCC has been implemented, independently tested, or validated by users. Reused logic must be reviewed against the new contract and tested again in TCC.
 
@@ -45,20 +48,20 @@ That checkpoint applies to the original experiment and its defined contract. It 
 - Read-only analysis: report findings rather than automatically repairing source records.
 - No dependency on operating trading systems, broker credentials, or live trading APIs.
 
-These boundaries are proposals to confirm during scope definition. Public examples should use synthetic data and contain no personal transaction records or account identifiers.
+The local v0.1-r1 technical contract now defines the intended implementation boundary; execution and independent product verification remain pending. Public examples should use synthetic data and contain no personal transaction records or account identifiers.
 
 ## Validation gates
 
 | Gate | Evidence needed | Current state |
 | --- | --- | --- |
-| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions documented | Pending |
+| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions documented | v0.1-r1 technical preparation complete; product verification pending |
 | First runnable version | CLI, sample input/output, and usage guide work together | Pending |
-| Automated validation | Tests for normal, duplicate, malformed, non-finite, and reconciliation cases under the frozen contract | Pending |
+| Automated validation | Tests for normal, duplicate, malformed, non-finite, and reconciliation cases under the contract | 55 external cases prepared; product execution NOT_RUN |
 | Fresh installation | A clean environment can follow the guide and reproduce the expected results | Pending |
 | External usability | An independent user completes the core task; difficulties and findings are recorded | Pending |
 | Commercial validation | Evidence of useful differentiation and willingness to pay | Pending |
 
-The next step is scope and contract definition, followed by implementation and verification. Future implementation and testing should record their actual evidence separately from this planning checkpoint.
+The next step is minimal core and CLI implementation against v0.1-r1, followed by actual acceptance execution, fresh installation, and independent review. Future implementation and testing should record their actual evidence separately from this planning checkpoint.
 
 ## Commercial hypothesis
 
