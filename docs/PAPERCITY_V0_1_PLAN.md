@@ -1,12 +1,22 @@
 # paperCity v0.1 — Prototype Plan
 
-**Status:** planned prototype
+**Status:** Core Engine design proposal prepared; implementation and executed engine tests pending.
 
 paperCity is a small city-management simulation concept designed to test whether the reusable reliability modules developed around paperpeper can remain useful outside trading.
 
 The game is not intended to compete with large city builders. Its first question is simpler:
 
 > Can a city feel alive when the player mainly makes numerical and policy decisions, while growth and decline become visible on the map?
+
+## October 3 Core Engine design checkpoint
+
+The design proposal separates a pure daily state transition from rendering, persistence, network access, and wall-clock speed controls. It specifies state fields and integer units, daily/monthly boundaries, command ordering, errors, and deterministic progression.
+
+Sixteen validation cases and ten authored expected-value examples are prepared. Document, JSON, and arithmetic checks validate the artifacts; they are not engine test execution or game-balance evidence.
+
+Initial play values and open design decisions remain unresolved. Facilities, policy effects, save/restore, UI, and reusable-module integration remain later implementation gates. The project stays a low-priority design track while operating repairs and the TCC runnable version take priority.
+
+[October 3 work and remaining gates](WORKLOG_2026-10-03.md#6-papercity)
 
 ## Core loop
 
