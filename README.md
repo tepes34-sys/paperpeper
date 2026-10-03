@@ -2,37 +2,39 @@
 
 > A public showcase of operating systems, reliability experiments, reusable modules, design decisions, a small cross-domain simulation prototype, and a transaction-checking product candidate.
 
-[October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
+[October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
 ## 1. paperpeper
 
 U.S. equity paper trading, an isolated Lab, and experiments with reusable tools.
 
-The October 3 review focuses on **measurement integrity, recovery, and the timestamp of each observation**. Execution logs, databases, CSV files, and dashboards may describe different points in time. Checks distinguish missing source data from an outdated derived report. When an alert appears, its evidence is verified before deciding whether to change the code.
+**October 4 checkpoint:** checkpoint crash/retry consistency, exact target-close validation, malformed-response isolation, and performance-review write safety are repaired and merged. The suite ran **604 tests, with no failures and one skip**.
 
-Quote-evidence, request-accounting, and monitoring changes were reviewed and merged. Checkpoint recovery, target-close validation, and performance-review write safety remain follow-up gates. Saved deployments and CI are recorded separately from normal scheduled-run evidence.
+The actual saved performance-review prompt was reopened and matched against the prepared instructions. A controlled paper-only measurement repair used exact target-close evidence; measurements without sufficient evidence stayed unfilled. Raw operating records remain private, and live trading remains disabled.
 
-[Current review and remaining gates](docs/WORKLOG_2026-10-03.md#1-paperpeper)
+Saved instructions, merged code, and CI do not establish that the next normal scheduled review, pick, or daily checkpoint has executed successfully. Those operating observations remain pending.
+
+[Current evidence and operating gates](docs/WORKLOG_2026-10-04.md#1-paperpeper)
 
 ## 2. paperA
 
-**October 3 checkpoint: Design Freeze v1.0 · steps 1–4 merged · 88 baseline tests independently reproduced.**
+**October 4 checkpoint: Design Freeze v1.0 preserved; the numerical boundary repairs are reviewed and merged.** Post-merge CI passed 97 full tests on Windows and 34 portable tests on Linux, each on Python 3.11/3.12. V1 runtime support remains Windows.
 
-The fixed 14-day public-market fixture contains **12,096 candles** and produced **163 entry-eligible candidates**. An offline rerun reproduced the measurement. A one-day fixture session verifies **109 runs / 108 cycles**; scheduled reliability evaluation remains a separate gate.
+The fixed 14-day fixture still contains 12,096 candles and yields 163 entry-eligible candidates. The independent exact oracle compared 1,512 observations without mismatch across 36 Decimal-context conditions. Candidates and fixture sessions are not executed strategy trades or scheduled reliability evidence.
 
-Two numerical boundary issues were reproduced and failure checks prepared; repairs and post-repair regression are pending. Fixture success does not establish scheduled operation or A/B integration.
+**Step 5A is locally implemented and saved:** one immutable candidate result is shared with A-v1 and B-v1. Its 20 new tests bring the local Windows Python 3.12.14 suite to 117 full tests and 54 portable tests. This change remains uncommitted, without new independent review or remote CI. A/B exits, entries, strategy decisions, persistence, recovery, and scheduled operation are subsequent gates.
 
-A **Shadow Reliability Lab** that uses public market events to test invariants, recovery, and portability.
+A Shadow Reliability Lab that uses public market events to test invariants, recovery, and portability.
 
-[Design and validation gates](PAPERA_PLAN.md) · [Detailed work notes](docs/WORKLOG_2026-09-30.md#2-papera)
+[Design and validation gates](PAPERA_PLAN.md) · [Current work notes](docs/WORKLOG_2026-10-04.md#3-papera)
 
 ## 3. think
 
-**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The October 3 numerical-contract proposal defines seven review principles for paperA and TCC; it remains proposed. The common invariant layer still requires cross-project reproduction and actual test evidence.
+**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The October 3 numerical-contract proposal defines seven review principles for paperA and TCC and remains **PROPOSED**. October 4 project-specific fixes and regression evidence do not approve that proposal or establish a new shared invariant.
 
-A design documentation layer that separates GPT/Claude discussions, approved decisions, and enduring conditions verified across projects.
+A design documentation layer that separates discussions, approved decisions, and enduring conditions verified across projects. Cross-project reproduction and adoption remain separate gates.
 
-[Document structure, design topics, and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
+[Current proposal boundary](docs/WORKLOG_2026-10-04.md#4-think-and-other-tracks) · [Document structure and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
 
 ## 4. GPT Lab and reusable-module pipeline
 
@@ -70,11 +72,13 @@ The engine implements construction/enabled-state commands, road connectivity, in
 
 ## 6. TCC — Transaction Consistency Checker
 
-**October 3 checkpoint: v0.1-r1 contract, 17 synthetic examples, and a 55-case acceptance harness prepared; core and CLI remain unimplemented.** The artifact audit and harness's own 10 tests passed. TCC product acceptance and fresh installation remain unrun.
+**October 4 checkpoint: v0.1.0 read-only core, CLI, Python API, and package implemented against the v0.1-r1 contract.** Actual product validation passed 18 unit tests and 55 external acceptance cases. Repeated acceptance runs preserved inputs and produced deterministic output.
 
-TCC is a proposed standalone tool for finding inconsistencies in transaction CSV files and explaining the findings. Candidate checks include duplicate records, malformed rows, non-finite numbers, and discrepancies in totals or reconstructed ledger state.
+A separate review identified an inherited Decimal default-context defect; the repair and regression were rechecked. A fresh Windows Python 3.12.14 installation worked outside the source repository. The reviewed version is merged in its private development repository; post-merge CI passed on Windows/Linux with Python 3.10/3.12.
 
-The next milestones are to implement the core and CLI against the prepared contract, run actual product acceptance, and verify a fresh installation. These are planned capabilities; no TCC release, completed product validation, external user validation, pricing, or revenue is claimed.
+The tool checks the supported normalized transaction CSV contract, including duplicate IDs, malformed rows, finite amounts, exact CREDIT/DEBIT totals, and optional expected final balance. It reports diagnostics without repairing source records.
+
+External usability, CSV preparation effort, willingness to pay, pricing, and revenue remain unverified. Private implementation and package-installation evidence do not constitute a public package release or sale readiness.
 
 [TCC product direction and validation gates](docs/TCC_V0_1_PLAN.md)
 
@@ -86,7 +90,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The October 3 work note records the review, offline evidence, unresolved defects, and revised next gates across all tracks, including the later paperCity Core/facilities implementation checkpoint. The September 30 note preserves the earlier paperpeper, paperA, and think checkpoint. Earlier public experiment and validation records remain available through the versioned link above.
+The [October 4 note](docs/WORKLOG_2026-10-04.md) records the completed operating repairs, TCC implementation/review/merge, PaperA numerical repairs, and locally saved step 5A, with remaining gates separated. The October 3 and September 30 notes retain their dated evidence. The later October 3 paperCity implementation record is preserved, and no new GPT Lab or paperCity run is claimed by this update.
 
 ---
 

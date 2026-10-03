@@ -1,68 +1,57 @@
 # TCC — Transaction Consistency Checker
 
-**Checkpoint:** October 3, 2026
+**Checkpoint:** October 4, 2026
 
-**Status:** v0.1-r1 technical contract and acceptance preparation complete; product core and CLI unimplemented; commercial demand unvalidated.
+**Status:** v0.1.0 prototype implemented, independently reviewed, fresh-install verified, and merged in its private development repository; external usability and commercial demand unvalidated.
 
-TCC is the first paid-product candidate selected from the reusable-tool experiments. Its proposed purpose is to help a user identify inconsistencies in transaction CSV files and understand what caused each finding.
+TCC is the first paid-product candidate selected from the reusable-tool experiments. It checks the supported normalized transaction CSV contract and explains inconsistencies without modifying source records.
 
 ## Current evidence
 
-- The local project contains a technical contract, design/reuse notes, and 17 synthetic CSV/expected-JSON pairs.
-- Ledger Inspector was reviewed as a source of patterns; its original test result is not a TCC product test.
-- An external acceptance harness contains 55 cases: 17 examples and 38 additional boundaries.
-- The 17-example artifact audit and the harness's own 10 tests passed.
-- TCC product acceptance is **NOT_RUN**. No core, CLI, package, or fresh-install result is available.
+- The v0.1-r1 contract and 17 synthetic CSV/expected-JSON pairs were prepared at the October 3 checkpoint. The artifact audit and acceptance harness's own 10 tests passed then; these were preparation evidence.
+- The product now has a read-only core, CLI, Python API, JSON/text diagnostics, and a wheel without runtime dependencies.
+- **18 unit tests and all 55 external acceptance cases actually passed.** Each acceptance case ran twice with deterministic output and unchanged input.
+- A separate review found an inherited Decimal.DefaultContext defect. The repair, added regression, and reviewer recheck completed before merge.
+- A fresh Windows Python 3.12.14 installation reproduced CLI/module results outside the source checkout, with installed files checked against the source.
+- Post-merge CI passed on Windows and Linux, each with Python 3.10 and 3.12. Each of the four environments ran 18 unit tests and 55 acceptance cases.
+- The original 42 documentation/sample/expected-result files were preserved byte-for-byte.
 
-Expected JSON describes the contract; it is not product output. Contract and sample preparation must be handed over with their actual versions.
+Expected JSON is a contract artifact; actual product execution is now recorded separately. A private build and successful installation are not a public package release.
 
-[October 3 work and validation notes](WORKLOG_2026-10-03.md#5-tcc)
+[October 4 evidence and remaining gates](WORKLOG_2026-10-04.md#2-tcc) · [October 3 preparation checkpoint](WORKLOG_2026-10-03.md#5-tcc)
 
-## Proposed problem and checks
+## Implemented v0.1 boundary
 
-Transaction records can look plausible while containing duplicate IDs, malformed rows, invalid numbers, or disagreements between recorded transactions and expected totals or balances. TCC should make those problems understandable without silently changing the records.
+The implementation follows the supported normalized transaction schema. It validates required fields and row shape, duplicate transaction IDs, valid finite Decimal amounts, exact CREDIT/DEBIT totals, and an optional expected final balance. Deterministic diagnostics identify the record and reason under that contract.
 
-Candidate checks include:
-
-| Area | Question to validate |
-| --- | --- |
-| Structure | Are required columns and row shapes valid for the chosen schema? |
-| Duplicates | Do repeated transaction identifiers indicate a consistency problem? |
-| Numbers | Are numeric values valid and finite, and do they meet the agreed field rules? |
-| Ledger consistency | Do reconstructed balances or positions agree with the provided expectations? |
-| Diagnostics | Can the user locate the affected record and understand the reason? |
-
-The local v0.1-r1 technical contract defines the supported schema, accounting rules, and comparison inputs. The table summarizes the intended behavior; product implementation and execution remain pending.
+- Read-only core, CLI, and Python API; no automatic source repair.
+- JSON and text output with defined exit codes 0/1/2.
+- Explicit file and row limits: 10 MiB and 10,000 data rows.
+- Synthetic normal and failing examples, plus actual boundary acceptance.
+- No dependency on an operating trading system, broker credentials, or live trading API.
+- No claim of arbitrary CSV format support, a complete accounting system, or position reconstruction outside the contract.
 
 ## Reuse candidate: Ledger Inspector
 
-GPT Lab experiment 001, Ledger Inspector, was reviewed for reuse. Reading, Decimal validation, and test organization inform the design; the trading-ledger core is not directly reused under TCC's different contract. Its earlier automated test checkpoint is documented in the [showcase module pipeline](../README.md#4-gpt-lab-and-reusable-module-pipeline).
+GPT Lab experiment 001 informed reading, Decimal validation, and test organization. Its trading-ledger core was not directly reused under TCC's different contract. Its earlier checkpoint remains documented in the [showcase module pipeline](../README.md#4-gpt-lab-and-reusable-module-pipeline).
 
-That checkpoint applies to the original experiment and its defined contract. It does not establish that TCC has been implemented, independently tested, or validated by users. Reused logic must be reviewed against the new contract and tested again in TCC.
-
-## Proposed v0.1 boundary
-
-- A standalone CSV-checking CLI with a short getting-started guide.
-- Explicit input and output contracts with understandable diagnostic reasons.
-- Synthetic normal and failing examples covering the supported checks.
-- Read-only analysis: report findings rather than automatically repairing source records.
-- No dependency on operating trading systems, broker credentials, or live trading APIs.
-
-The local v0.1-r1 technical contract now defines the intended implementation boundary; execution and independent product verification remain pending. Public examples should use synthetic data and contain no personal transaction records or account identifiers.
+Original experiment tests remain separate from TCC product validation. TCC's 18 unit tests, 55 actual acceptance cases, fresh installation, and independent review are its own evidence.
 
 ## Validation gates
 
 | Gate | Evidence needed | Current state |
 | --- | --- | --- |
-| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions documented | v0.1-r1 technical preparation complete; product verification pending |
-| First runnable version | CLI, sample input/output, and usage guide work together | Pending |
-| Automated validation | Tests for normal, duplicate, malformed, non-finite, and reconciliation cases under the contract | 55 external cases prepared; product execution NOT_RUN |
-| Fresh installation | A clean environment can follow the guide and reproduce the expected results | Pending |
-| External usability | An independent user completes the core task; difficulties and findings are recorded | Pending |
-| Commercial validation | Evidence of useful differentiation and willingness to pay | Pending |
+| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions | v0.1-r1 implemented; original artifacts preserved |
+| First runnable version | Core, CLI, sample input/output, and usage guide | Complete for the defined prototype contract |
+| Automated validation | Product tests against normal and boundary cases | 18 unit tests + 55 actual acceptance cases passed |
+| Independent review | Separate review and resolution of findings | Completed; Decimal default-context repair rechecked |
+| Fresh installation | Clean environment and use outside the source checkout | Verified on Windows Python 3.12.14 |
+| Main and CI | Reviewed merge and platform-specific checks | Merged privately; four Windows/Linux Python environments passed |
+| External usability | Independent user completes the task; CSV preparation and diagnostic understanding recorded | Pending |
+| Commercial validation | Useful differentiation and willingness to pay | Pending |
 
-The next step is minimal core and CLI implementation against v0.1-r1, followed by actual acceptance execution, fresh installation, and independent review. Future implementation and testing should record their actual evidence separately from this planning checkpoint.
+Next: evaluate a user-provided CSV against the documented input boundary and prepare 1–3 independent user trials when participants and inputs are available. No participant contact or trial completion is claimed by this documentation update.
 
 ## Commercial hypothesis
 
-The "first dollar" track is an experiment goal. No selling price, completed sale, revenue, or willingness to pay has been established. Passing automated tests will not, by itself, demonstrate usability or commercial value.
+The first-dollar track is an experiment goal. No selling price, completed sale, revenue, or willingness to pay has been established. Automated tests and installation evidence do not establish usability or sale readiness.

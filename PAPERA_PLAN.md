@@ -39,7 +39,17 @@ Candidate frequency, automated tests, and live operating observations are distin
 
 [Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
-## October 3 follow-up review
+## October 4 implementation checkpoint
+
+The finite-input and Decimal-context repairs are independently reviewed and merged. Post-merge CI passed 97 full tests on Windows and 34 portable tests on Linux, each on Python 3.11/3.12. The exact fixture oracle retained 1,512 matching observations, 36 context conditions, and 163 entry-eligible candidates. V1 runtime support remains Windows.
+
+Step 5 now has an authored 61-case plan. Step 5A is locally saved: a pure, immutable shared candidate boundary with 20 new tests. The full 117-test suite and portable 54-test suite passed on Windows Python 3.12.14. These are local executions; the new change is uncommitted and has no new independent review or remote CI. The authored case inventory is planning material, not proof that all 61 cases ran.
+
+Next is 5B: Strategy A time exit and required-price boundaries, followed by B, entry/order/gate behavior, and integration verification. Strategy TAKEN/SKIP, persistence, transactions, actual SESSION_END execution, the API adapter, and scheduled reliability remain later stages.
+
+[October 4 evidence and remaining gates](docs/WORKLOG_2026-10-04.md#3-papera)
+
+## October 3 follow-up review — historical finding
 
 The earlier 88-test baseline, 12,096-candle fixture, and 163 candidates were reproduced offline. Additional synthetic checks identified unresolved validation of non-finite prices and the carry input, plus dependence of SMA calculations on the caller's Decimal context.
 
@@ -174,7 +184,7 @@ Paperpeper Lab must independently reproduce the invariant using U.S.-equity fixt
 2. **Completed at the September 30 checkpoint:** Build schema/version/currency checks.
 3. **Completed at the September 30 checkpoint:** Build fixture-based collector.
 4. **Completed at the September 30 checkpoint:** Add run-once lifecycle, lock, session handling, and Black Box.
-5. Add shared candidates and pure A/B strategies.
+5. **In progress:** shared candidate step 5A locally implemented/tested; independent review and promotion pending. Pure A/B strategies and integration remain planned.
 6. Add transactions, idempotency, LIVE/RECOVERED handling, SESSION_END.
 7. Add ledger, reconciliation, and VOID handling.
 8. Add SAFE / quarantine / acknowledgement flow.
@@ -200,7 +210,7 @@ This showcase publishes design and verification summaries. The complete source a
 ---
 
 **Design:** Frozen v1.0  
-**Implementation:** Steps 1–4 merged; 88 tests passed at the September 30 checkpoint; scheduled reliability evaluation pending  
+**Implementation:** Steps 1–4 and numerical repairs merged (97 full Windows / 34 portable Linux tests); step 5A locally saved (117 full / 54 portable tests on Windows), uncommitted; scheduled reliability evaluation pending  
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
