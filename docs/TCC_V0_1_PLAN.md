@@ -2,7 +2,7 @@
 
 **Checkpoint:** October 4, 2026
 
-**Status:** v0.1.0 prototype implemented, independently reviewed, fresh-install verified, and merged in its private development repository; external usability and commercial demand unvalidated.
+**Status:** v0.1.0 prototype and separated user-trial kit implemented, reviewed, fresh-install verified, and merged in the development repository; actual user trials and commercial demand remain unvalidated.
 
 TCC is the first paid-product candidate selected from the reusable-tool experiments. It checks the supported normalized transaction CSV contract and explains inconsistencies without modifying source records.
 
@@ -19,6 +19,14 @@ TCC is the first paid-product candidate selected from the reusable-tool experime
 Expected JSON is a contract artifact; actual product execution is now recorded separately. A private build and successful installation are not a public package release.
 
 [October 4 evidence and remaining gates](WORKLOG_2026-10-04.md#2-tcc) · [October 3 preparation checkpoint](WORKLOG_2026-10-03.md#5-tcc)
+
+## October 4 user-trial preparation
+
+Participant instructions, four independent synthetic CSV tasks, feedback form, and wheel are separated from facilitator answers and captured outputs. Review removed answer leakage through task labels, example rows, and comparisons with the normal task.
+
+The participant archive was unpacked and installed offline in a fresh location. Five documented commands reproduced exits 0/1/1/0/1 and installed code matched main. The trial-kit merge and post-merge CI completed without changing the product contract or output format.
+
+The delivery archive remains local. Actual participants, preparation effort, diagnostic comprehension, and external feedback are still pending. No public package release or participant contact is claimed.
 
 ## Implemented v0.1 boundary
 
@@ -50,7 +58,7 @@ Original experiment tests remain separate from TCC product validation. TCC's 18 
 | External usability | Independent user completes the task; CSV preparation and diagnostic understanding recorded | Pending |
 | Commercial validation | Useful differentiation and willingness to pay | Pending |
 
-Next: evaluate a user-provided CSV against the documented input boundary and prepare 1–3 independent user trials when participants and inputs are available. No participant contact or trial completion is claimed by this documentation update.
+Next: use the prepared participant kit for 1–3 independent user trials when participants and inputs are available, recording installation, CSV preparation, and diagnostic comprehension. No participant contact or trial completion is claimed by this documentation update.
 
 ## Commercial hypothesis
 

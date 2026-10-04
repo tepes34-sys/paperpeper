@@ -20,6 +20,16 @@ The next functional gate is Phase3 growth/decline design. Initial play values, p
 
 [Implementation, regression findings, and measurements](PAPERCITY_IMPLEMENTATION_2026-10-03.md) · [October 3 worklog](WORKLOG_2026-10-03.md#6-papercity)
 
+## October 4 independent rerun and Phase3 design
+
+The existing 667-test suite was reproduced, and six independent arithmetic/failure checks passed. Phase3 review removed proposed unemployment double-counting, clarified month-end evaluation and next-day effects, and identified new monthly observations/state-version requirements.
+
+Zero-population recovery requires a separate proposed seed-evaluation branch. Closed-facility reopening uses a hypothetical resource/demand evaluation rather than treating zero current activity as recovery evidence. Actual observations and hypothetical results remain distinct. Twelve boundary cases were authored, with six selected calculations cross-checked against the current Phase2 planner under the stated modeling limits.
+
+All Phase3 values remain proposed; growth/decline implementation, source commit/publication, and game balance adoption are pending. Historical performance counts are local-development evidence with traced/untraced timing limits, not gameplay or release guarantees.
+
+[Final day record](WORKLOG_2026-10-04.md#4-think-and-other-tracks)
+
 ## Core loop
 
 **Observe → decide → simulate → react → grow or decline → explain**

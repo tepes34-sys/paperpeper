@@ -5,7 +5,7 @@
 ## Status
 
 **DESIGN FROZEN v1.0 · 2026-09-30**  
-**Implementation steps 1–4 are merged; 88 tests passed at the September 30 checkpoint.** The fixed 14-day fixture contains 12,096 candles and yields 163 entry-eligible candidates, reproduced offline. Strategy, position, ledger, full safety/admin workflows, the live adapter, and scheduled reliability evaluation remain separate subsequent stages.
+**Implementation steps 1–7 are merged at the October 4 final checkpoint.** The final step 7 feature revision passed 288 Windows full tests and 221 Linux portable tests in four Python 3.11/3.12 CI environments. The fixed 14-day fixture and 163 entry-eligible candidates are retained. Full safety/acknowledgement workflows, the real adapter, operating deployment, and scheduled reliability remain subsequent stages.
 
 paperA exists to generate frequent, realistic market events during Korean daytime hours and weekends. It is not intended to prove crypto profitability or transfer a crypto strategy directly into U.S. equities.
 
@@ -39,15 +39,19 @@ Candidate frequency, automated tests, and live operating observations are distin
 
 [Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
-## October 4 implementation checkpoint
+## October 4 final implementation checkpoint
 
-The finite-input and Decimal-context repairs are independently reviewed and merged. Post-merge CI passed 97 full tests on Windows and 34 portable tests on Linux, each on Python 3.11/3.12. The exact fixture oracle retained 1,512 matching observations, 36 context conditions, and 163 entry-eligible candidates. V1 runtime support remains Windows.
+Numerical repairs, shared candidate/A-B integration (step 5), transactional persistence/recovery and session-close handling (step 6), and offline ledger/reconciliation/minimal alerts/VOID (step 7) are now merged.
 
-Step 5 now has an authored 61-case plan. Step 5A is locally saved: a pure, immutable shared candidate boundary with 20 new tests. The full 117-test suite and portable 54-test suite passed on Windows Python 3.12.14. These are local executions; the new change is uncommitted and has no new independent review or remote CI. The authored case inventory is planning material, not proof that all 61 cases ran.
+Independent review reproduced a carried-price quarantine exit without a real closing candle and fixed it before the step 6 merge. Step 7 review repaired value-versus-text mismatch signatures, stray compensating ledger entries, and missing negative-cash evidence. Dedicated retry tests distinguish defect removal from recovered entry omission, and alert resolution states that defect repair was not verified.
 
-Next is 5B: Strategy A time exit and required-price boundaries, followed by B, entry/order/gate behavior, and integration verification. Strategy TAKEN/SKIP, persistence, transactions, actual SESSION_END execution, the API adapter, and scheduled reliability remain later stages.
+The final step 7 revision passed **288 full tests on Windows and 221 portable tests on Linux**, each on Python 3.11/3.12. Three 14-day replay scenarios match the merged step 6 trade reference; 1,008 tick-by-strategy comparisons are MATCH and cash agrees with a Fraction oracle. Linux portable CI does not establish Linux runtime support.
 
-[October 4 evidence and remaining gates](docs/WORKLOG_2026-10-04.md#3-papera)
+Conservation is `cash + active entry cost = initial cash + realized gross P&L`. Fill-based VOID cancellation does not reuse the ledger reversal amount. VOID atomically resolves all connected unresolved stale alerts and records each event.
+
+Migration remains offline/synthetic. Production journal/FULL settings are retained, while temporary test databases omit fsync for speed; exception rollback tests do not establish power-loss durability. Next is step 8 plan/approval and safety/acknowledgement work, followed by the existing adapter, reporting, fault, recovery, and scheduled reliability gates.
+
+[October 4 final evidence](docs/WORKLOG_2026-10-04.md#3-papera)
 
 ## October 3 follow-up review — historical finding
 
@@ -184,9 +188,9 @@ Paperpeper Lab must independently reproduce the invariant using U.S.-equity fixt
 2. **Completed at the September 30 checkpoint:** Build schema/version/currency checks.
 3. **Completed at the September 30 checkpoint:** Build fixture-based collector.
 4. **Completed at the September 30 checkpoint:** Add run-once lifecycle, lock, session handling, and Black Box.
-5. **In progress:** shared candidate step 5A locally implemented/tested; independent review and promotion pending. Pure A/B strategies and integration remain planned.
-6. Add transactions, idempotency, LIVE/RECOVERED handling, SESSION_END.
-7. Add ledger, reconciliation, and VOID handling.
+5. **Merged on October 4:** shared candidate and pure A/B strategy integration.
+6. **Merged on October 4:** transactions, idempotency, LIVE/RECOVERED handling, and session-close quarantine repair.
+7. **Merged on October 4:** offline ledger, three-way reconciliation, minimal stale/mismatch alerts, and administrative VOID. Operating migration is pending.
 8. Add SAFE / quarantine / acknowledgement flow.
 9. Connect the public Upbit adapter.
 10. Add reports and ALERT artifacts.
@@ -210,7 +214,7 @@ This showcase publishes design and verification summaries. The complete source a
 ---
 
 **Design:** Frozen v1.0  
-**Implementation:** Steps 1–4 and numerical repairs merged (97 full Windows / 34 portable Linux tests); step 5A locally saved (117 full / 54 portable tests on Windows), uncommitted; scheduled reliability evaluation pending  
+**Implementation:** Steps 1–7 merged; final step 7 feature CI 288 full Windows / 221 portable Linux tests; operating migration, step 8, adapter, and scheduled reliability pending
 **Live trading:** Out of scope
 
 Software research project. Not financial advice.
