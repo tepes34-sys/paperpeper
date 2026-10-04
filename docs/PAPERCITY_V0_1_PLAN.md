@@ -1,5 +1,8 @@
 # paperCity v0.1 — Prototype Plan
 
+**October 4 completion assessment: 35% toward playable v0.1.** This is an editorial scope estimate; growth, policies, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
+
+
 **Status:** Core and nine facilities/economy types implemented and verified locally; 667 product test executions passed. Growth, policies, persistence, and UI remain planned. This is a simulation experiment, not a released game.
 
 paperCity is a small city-management simulation concept designed to test whether the reusable reliability modules developed around paperpeper can remain useful outside trading.

@@ -5,7 +5,9 @@
 ## Status
 
 **DESIGN FROZEN v1.0 · 2026-09-30**  
-**Implementation steps 1–7 are merged at the October 4 final checkpoint.** The final step 7 feature revision passed 288 Windows full tests and 221 Linux portable tests in four Python 3.11/3.12 CI environments. The fixed 14-day fixture and 163 entry-eligible candidates are retained. Full safety/acknowledgement workflows, the real adapter, operating deployment, and scheduled reliability remain subsequent stages.
+**Steps 1–7 are merged; steps 8–12 are implemented/tested in a separate candidate.** Final-candidate CI passed 440 Windows full / 358 Ubuntu portable tests in four Python 3.11/3.12 environments. Independent review and main integration of the later stacked changes remain pending. A pinned candidate, migrated initial database and two scheduler tasks were actually installed; initial off-session execution/audit succeeded.
+
+**Estimated Freeze v1.0 completion: 80%.** The full-day October 5 trial, actual fixed seven-day reliability, required CLEAN samples and remaining review/integration are uncompleted gates. This is a weighted scope estimate with judgment uncertainty, not a reliability pass. [Full assessment and evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md#papera--steps-814-preparation-and-partial-operating-evidence).
 
 paperA exists to generate frequent, realistic market events during Korean daytime hours and weekends. It is not intended to prove crypto profitability or transfer a crypto strategy directly into U.S. equities.
 
@@ -39,7 +41,7 @@ Candidate frequency, automated tests, and live operating observations are distin
 
 [Detailed note — paperpeper / paperA / think](docs/WORKLOG_2026-09-30.md)
 
-## October 4 final implementation checkpoint
+## October 4 earlier step 7 checkpoint — historical
 
 Numerical repairs, shared candidate/A-B integration (step 5), transactional persistence/recovery and session-close handling (step 6), and offline ledger/reconciliation/minimal alerts/VOID (step 7) are now merged.
 
@@ -49,7 +51,7 @@ The final step 7 revision passed **288 full tests on Windows and 221 portable te
 
 Conservation is `cash + active entry cost = initial cash + realized gross P&L`. Fill-based VOID cancellation does not reuse the ledger reversal amount. VOID atomically resolves all connected unresolved stale alerts and records each event.
 
-Migration remains offline/synthetic. Production journal/FULL settings are retained, while temporary test databases omit fsync for speed; exception rollback tests do not establish power-loss durability. Next is step 8 plan/approval and safety/acknowledgement work, followed by the existing adapter, reporting, fault, recovery, and scheduled reliability gates.
+At this earlier step 7 checkpoint, migration was offline/synthetic and step 8 onward was pending. Later same-day work installed a pinned candidate and the initial operating database; see the current status above. Runtime FULL settings and the distinction between process rollback and unverified power-loss durability remain applicable.
 
 [October 4 final evidence](docs/WORKLOG_2026-10-04.md#3-papera)
 

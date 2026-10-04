@@ -1,5 +1,8 @@
 # TCC — Transaction Consistency Checker
 
+**October 4 completion assessment: 80% toward independently usable v0.1.** This is an editorial scope estimate; actual user tasks/feedback and distribution decision remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
+
+
 **Checkpoint:** October 4, 2026
 
 **Status:** v0.1.0 prototype and separated user-trial kit implemented, reviewed, fresh-install verified, and merged in the development repository; actual user trials and commercial demand remain unvalidated.

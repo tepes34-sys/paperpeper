@@ -2,7 +2,7 @@
 
 > A public showcase of operating systems, reliability experiments, reusable modules, design decisions, a small cross-domain simulation prototype, and a transaction-checking product candidate.
 
-[October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
+[Portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
 ## 1. paperpeper
 
@@ -18,11 +18,11 @@ Raw operating records remain private and live trading stays disabled. Normal sch
 
 A Shadow Reliability Lab testing invariants, recovery, and portability with virtual market events. Design Freeze v1.0 is preserved; V1 runtime support remains Windows.
 
-**October 4 final checkpoint: steps 1–7 merged.** A/B candidate/strategy integration, atomic persistence and recovery, exact session-close handling, and an offline ledger/reconciliation/VOID implementation have progressed beyond the early local step 5A checkpoint.
+**October 4 later checkpoint: steps 8–12 implemented and tested; scheduler preparation through step 14 deployed as a pinned candidate.** Steps 1–7 are merged; four stacked draft changes for the later work still await independent review and main integration.
 
-The final step 7 feature revision passed **288 Windows full tests and 221 Linux portable tests**, each on Python 3.11/3.12. Independent review findings were reproduced and repaired; three 14-day replay scenarios retained trading results and 1,008 tick-by-strategy MATCH observations with an independent Fraction cash comparison.
+Safety/operator recovery, the public quotation adapter, read-only reports/alerts, ten controlled fault scenarios and actual process-kill restart equivalence are implemented. Final-candidate CI passed **440 full tests on Windows and 358 portable tests on Ubuntu**, each with Python 3.11/3.12. The 14-day normal fixture retains 456 fills and 912 independent amount comparisons; these are offline evidence.
 
-Recovered tick completion does not prove a code defect was repaired. VOID, rollback, and mismatch paths have dedicated regressions. Operating database migration, step 8 safety/acknowledgement, the real adapter, and scheduled reliability remain pending. Step 7 merge and post-merge CI are recorded separately in the worklog.
+Two actual Windows tasks and the initial database are installed. Initial off-session execution and audit succeeded with zero requests, cycles or financial activity. **The October 5 full-day trial and actual seven-day reliability remain pending.** Trial success would enable October 6–12; CLEAN samples alone may extend through October 26. The PC must remain powered on and the configured user signed in. No power-loss or profitability claim is established.
 
 [Design and validation gates](PAPERA_PLAN.md) · [Current work notes](docs/WORKLOG_2026-10-04.md#3-papera)
 
@@ -80,6 +80,19 @@ A separated participant/facilitator trial kit was reviewed and merged. The parti
 
 [TCC product direction and validation gates](docs/TCC_V0_1_PLAN.md)
 
+## Estimated current-version completion
+
+| Project | Estimate | Main remaining gate |
+| --- | ---: | --- |
+| Paperpeper | 90% | Normal October 5–6 scheduled evidence; two unresolved measurements |
+| PaperA | 80% | Independent review/main integration, full-day trial, real seven-day and clean samples |
+| TCC | 80% | Independent user trials and distribution decision |
+| GPT Lab | 80% | Explicit experiment CI and documented downstream reuse validation |
+| Think | 70% | Proposal review/approval, shared invariant evidence and cross-project adoption |
+| PaperCity | 35% | Growth, policies, persistence, UI, integrated playtesting and balance |
+
+Editorial scope estimates with roughly 5–10 percentage points of judgment uncertainty; required gates remain mandatory. Each project has a different completion target. These percentages do not measure profitability, commercial validation or release readiness. [Targets, weighted rationale and consolidated evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md).
+
 ## Public disclosure policy
 
 This showcase is **English-only**. Publish as much useful, non-sensitive evidence as possible. Clearly distinguish design approval, code implementation, automated tests, live operating verification, discovery candidates, and future plans.
@@ -88,7 +101,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The [October 4 final note](docs/WORKLOG_2026-10-04.md) records operating safety and checkpoint evidence, TCC trial preparation, merged paperA steps 5–7 with independent failure reviews, and paperCity Phase2 rerun/Phase3 design. The October 3 and September 30 notes retain their dated evidence. GPT Lab retains its earlier checkpoint; scheduled operation, actual users, and later implementation remain separate gates.
+The [October 4 note](docs/WORKLOG_2026-10-04.md) preserves operating safety, TCC trial preparation and earlier implementation history. The [later portfolio report](docs/PORTFOLIO_PROGRESS_2026-10-04.md) adds PaperA steps 8–14 preparation, actual candidate installation and remaining real-session gates. The October 3 and September 30 notes retain their dated evidence. GPT Lab retains its earlier checkpoint; scheduled operation, actual users, and later implementation remain separate gates.
 
 ---
 
