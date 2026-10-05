@@ -1,5 +1,17 @@
 # Portfolio progress and consolidated work — October 4, 2026
 
+## October 5 closing update
+
+**October 5 closing checkpoint: Phase 3 A–F and the Phase 4 tax slice A–F independently reviewed, repaired, and merged into development main.** Final local suite: **1,466 passed = 544 Core + 123 facilities/economy + 438 growth + 361 policy**. Windows and Ubuntu Python 3.12 each passed the same suites after integration; all eight downloaded test-result files were checked. This remains an experimental engine.
+
+Two separate AI reviewers inspected growth/recovery and policy code independently of the implementation author. Both reproduced a P2 ordering defect at facility ID width changes: valid sparse restored cities could fail after construction. The author repaired paired asset/lifecycle ordering in both producers and independent command replay; the reviewers rechecked the fixes and reported no unresolved blocker. Twelve new product regressions cover 10,000 / 100,000 / 1,000,000 sequence boundaries, strict JSON restore, mixed commands, actual advancement and forged-order rejection. Independent scratch checks are recorded separately from the product-test count. This is an independent AI-agent review, not a human code-review or user-trial claim.
+
+Next: resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. Remaining policy controls, persistence/recovery, City Black Box, UI, game balance, external playtesting and release remain separate gates.
+
+[Phase 4 and integration details](PAPERCITY_PHASE4_2026-10-05.md) · [Revised weekly priorities](WEEKLY_PLAN_2026-10-05.md)
+
+## Historical publication checkpoints
+
 **Historical assessment notice:** the percentages and outstanding gates below describe the October 4 cutoff. [October 5 evidence](WORKLOG_2026-10-05.md) now includes approved Decisions 012–014, scoped numeric adoption, explicit Lab CI and local PaperCity Phase 3 implementation. Those advances are not retroactively inserted into the original score calculation. No new completion percentage or actual-operation/user-readiness claim is made here.
 
 **Assessment cutoff: October 4, 2026, 21:30 KST.** This record includes the later PaperA work through scheduler deployment, superseding earlier same-day step 7 status. Six tracks are assessed against their current version or baseline goal.

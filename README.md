@@ -60,11 +60,13 @@ These are **discovery candidates only** unless separately implemented and verifi
 
 ## 5. paperCity — simulation experiment
 
-**October 5 checkpoint: Core, facilities/economy and Phase 3 A–F implemented and tested locally;1,099 passed (544 Core + 123 Phase 2 + 432 growth).** Growth/decline, paid resettlement and business reopening, actual monthly observations, occupancy classes, conserved records and input-linked validation now run in the experimental engine.
+**October 5 closing checkpoint: Phase 3 A–F and the Phase 4 tax slice A–F independently reviewed, repaired, and merged into development main.** Final local suite: **1,466 passed = 544 Core + 123 facilities/economy + 438 growth + 361 policy**. Windows and Ubuntu Python 3.12 each passed the same suites after integration; all eight downloaded test-result files were checked. This remains an experimental engine.
 
-Author review reproduced and fixed two aggregate-money/population-history defects, adding 16 regressions. Six authored execution scenarios and four fresh-process 1000/10000-day performance cells passed; both return paths and the previous Phase 3 run match in final states and all ordered-record digests/counts. These are 12-facility local experiments, not maximum-load, gameplay-balance or release guarantees.
+Two separate AI reviewers inspected growth/recovery and policy code independently of the implementation author. Both reproduced a P2 ordering defect at facility ID width changes: valid sparse restored cities could fail after construction. The author repaired paired asset/lifecycle ordering in both producers and independent command replay; the reviewers rechecked the fixes and reported no unresolved blocker. Twelve new product regressions cover 10,000 / 100,000 / 1,000,000 sequence boundaries, strict JSON restore, mixed commands, actual advancement and forged-order rejection. Independent scratch checks are recorded separately from the product-test count. This is an independent AI-agent review, not a human code-review or user-trial claim.
 
-The cumulative experimental Phase3 source is now committed/pushed with a draft change for separate review. Windows/Ubuntu Python 3.12 each passed 1,099 tests in both push/PR runs, confirmed from all four result files. Separate independent approval, main integration, game-balance adoption, policy implementation, save/recovery, UI and playtesting remain follow-ups. Phase4 policy preparation is a design-only draft with 12 planned checks. [Phase 3 implementation and measured evidence](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
+Next: resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. Remaining policy controls, persistence/recovery, City Black Box, UI, game balance, external playtesting and release remain separate gates.
+
+[Phase 3 history](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Phase 4 tax and closing evidence](docs/PAPERCITY_PHASE4_2026-10-05.md) · [Revised week](docs/WEEKLY_PLAN_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
 ## 6. TCC — Transaction Consistency Checker
 

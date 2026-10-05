@@ -1,5 +1,17 @@
 # PaperCity Phase 3 — Local implementation and author review
 
+## October 5 closing update
+
+**October 5 closing checkpoint: Phase 3 A–F and the Phase 4 tax slice A–F independently reviewed, repaired, and merged into development main.** Final local suite: **1,466 passed = 544 Core + 123 facilities/economy + 438 growth + 361 policy**. Windows and Ubuntu Python 3.12 each passed the same suites after integration; all eight downloaded test-result files were checked. This remains an experimental engine.
+
+Two separate AI reviewers inspected growth/recovery and policy code independently of the implementation author. Both reproduced a P2 ordering defect at facility ID width changes: valid sparse restored cities could fail after construction. The author repaired paired asset/lifecycle ordering in both producers and independent command replay; the reviewers rechecked the fixes and reported no unresolved blocker. Twelve new product regressions cover 10,000 / 100,000 / 1,000,000 sequence boundaries, strict JSON restore, mixed commands, actual advancement and forged-order rejection. Independent scratch checks are recorded separately from the product-test count. This is an independent AI-agent review, not a human code-review or user-trial claim.
+
+Next: resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. Remaining policy controls, persistence/recovery, City Black Box, UI, game balance, external playtesting and release remain separate gates.
+
+[Phase 4 and integration details](PAPERCITY_PHASE4_2026-10-05.md) · [Revised weekly priorities](WEEKLY_PLAN_2026-10-05.md)
+
+## Historical publication checkpoints
+
 **October 5, 2026: P3-A–F implemented and tested locally; author boundary review completed.** Latest suite: **1,099 passed = 544 Core + 123 facilities/economy + 432 growth**. Proposed balance values remain experimental. Separate independent approval, source PR/integration and remote CI are pending at this publication cutoff.
 
 ## Stage evidence

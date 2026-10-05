@@ -1,9 +1,9 @@
 # paperCity v0.1 — Prototype Plan
 
-**Historical October 4 completion assessment:35% toward playable v0.1.** This editorial estimate was not recalculated after the October 5 Phase 3 implementation; policies, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
+**Historical October 4 completion assessment:35% toward playable v0.1.** This editorial estimate was not recalculated after the October 5 Phase 3 implementation; remaining policy behavior/controls, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
 
 
-**Current status, October 5:** Core, facilities/economy and Phase 3 A–F implemented and verified locally;1,099 product test executions passed. Author review fixed two boundary defects; separate independent approval, source PR/remote CI, policies, persistence, UI and playtesting remain. This is a simulation experiment, not a released game. [Phase 3 evidence](PAPERCITY_PHASE3_2026-10-05.md).
+**October 5 closing checkpoint: Phase 3 A–F and the Phase 4 tax slice A–F independently reviewed, repaired, and merged into development main.** Final local suite: **1,466 passed = 544 Core + 123 facilities/economy + 438 growth + 361 policy**. Windows and Ubuntu Python 3.12 each passed the same suites after integration; all eight downloaded test-result files were checked. This remains an experimental engine. Next: resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. Remaining policy controls, persistence/recovery, City Black Box, UI, game balance, external playtesting and release remain separate gates. [Closing evidence](PAPERCITY_PHASE4_2026-10-05.md).
 
 paperCity is a small city-management simulation concept designed to test whether the reusable reliability modules developed around paperpeper can remain useful outside trading.
 
@@ -29,7 +29,7 @@ The existing 667-test suite was reproduced, and six independent arithmetic/failu
 
 Zero-population recovery requires a separate proposed seed-evaluation branch. Closed-facility reopening uses a hypothetical resource/demand evaluation rather than treating zero current activity as recovery evidence. Actual observations and hypothetical results remain distinct. Twelve boundary cases were authored, with six selected calculations cross-checked against the current Phase 2 planner under the stated modeling limits.
 
-At that October 4 checkpoint, Phase 3 values were proposed and implementation/source publication/balance adoption were pending. October 5 has local Phase 3 implementation; independent approval, source publication/integration and balance adoption remain separate. Historical performance counts are local-development evidence with traced/untraced timing limits, not gameplay or release guarantees.
+At that October 4 checkpoint, Phase 3 values were proposed and implementation/source publication/balance adoption were pending. The later October 5 closing checkpoint has independent AI review and development-main integration of growth and the first tax slice; balance adoption remains separate. Historical performance counts are local-development evidence with traced/untraced timing limits, not gameplay or release guarantees.
 
 [Final day record](WORKLOG_2026-10-04.md#4-think-and-other-tracks)
 
