@@ -1,5 +1,7 @@
 # Portfolio progress and consolidated work — October 4, 2026
 
+**Historical assessment notice:** the percentages and outstanding gates below describe the October 4 cutoff. [October 5 evidence](WORKLOG_2026-10-05.md) now includes approved Decisions 012–014, scoped numeric adoption, explicit Lab CI and local PaperCity Phase 3 implementation. Those advances are not retroactively inserted into the original score calculation. No new completion percentage or actual-operation/user-readiness claim is made here.
+
 **Assessment cutoff: October 4, 2026, 21:30 KST.** This record includes the later PaperA work through scheduler deployment, superseding earlier same-day step 7 status. Six tracks are assessed against their current version or baseline goal.
 
 ## Estimated completion
@@ -49,7 +51,7 @@ Required actual evidence remains: cycle success at least 99% outside explicit fa
 
 ### TCC — runnable checker and trial preparation
 
-The unchanged v0.1-r1 contract is implemented in v0.1.0 read-only core, CLI, Python API and dependency-free wheel. The recorded product validation passed 18 unit tests and 55 acceptance cases, each repeated to verify deterministic output and input preservation. A separate review's Decimal default-template defect was repaired. Fresh installation outside the source checkout and four Windows/Linux Python 3.10/3.12 CI environments were verified. Implementation and trial-kit merges are complete.
+The unchanged v0.1-r 1 contract is implemented in v0.1.0 read-only core, CLI, Python API and dependency-free wheel. The recorded product validation passed 18 unit tests and 55 acceptance cases, each repeated to verify deterministic output and input preservation. A separate review's Decimal default-template defect was repaired. Fresh installation outside the source checkout and four Windows/Linux Python 3.10/3.12 CI environments were verified. Implementation and trial-kit merges are complete.
 
 Participant instructions, four independent synthetic datasets, feedback form and wheel are separated from facilitator answers and captured outputs. A fresh unpacked archive installation reproduced five documented commands. Actual 1–3 participant trials, CSV preparation effort, diagnostic understanding and independent usefulness remain unverified. The local archive is not a public package release. No participant contact, pricing, willingness to pay or revenue is claimed.
 
@@ -63,9 +65,9 @@ Seven baseline module experiments retain the **October 3 independent 56-test che
 
 ### PaperCity — simulation engine, remaining game
 
-Core and nine facilities/economy types are locally implemented with the recorded 667 product test executions (544 Core + 123 Phase2). October 4 reproduced that suite and six independent arithmetic/failure checks. Authored scenario comparison and provisional local performance checks remain development evidence.
+Core and nine facilities/economy types are locally implemented with the recorded 667 product test executions (544 Core + 123 Phase 2). October 4 reproduced that suite and six independent arithmetic/failure checks. Authored scenario comparison and provisional local performance checks remain development evidence.
 
-Phase3 design review separates monthly observations from hypothetical resettlement/reopening, avoids unemployment double-counting, and defines zero-population/closed-facility boundaries. Selected arithmetic checks are design support, not growth implementation. Values and balance remain proposed. Growth, policies, save/load and recovery, player UI, integrated playtesting and release remain pending. Simulation source is locally uncommitted/unpublished; documentation publication does not publish or release it.
+Phase 3 design review separates monthly observations from hypothetical resettlement/reopening, avoids unemployment double-counting, and defines zero-population/closed-facility boundaries. Selected arithmetic checks are design support, not growth implementation. Values and balance remain proposed. Growth, policies, save/load and recovery, player UI, integrated playtesting and release remain pending. Simulation source is locally uncommitted/unpublished; documentation publication does not publish or release it.
 
 ## Weighted rationale
 
@@ -151,7 +153,7 @@ Each project's available points total 100. Awarded points reflect the evidence a
 1. Paperpeper: observe normal October 5–6 scheduled runs and resolve the two remaining measurement cases from admissible evidence.
 2. PaperA: independently review the stacked candidate, complete source integration with fresh checks when authorized, and observe the October 5 full-day trial. Evaluate actual October 6–12 records only if the trial passes; extend samples only under the frozen policy.
 3. TCC: use the separated trial kit with actual participants when available; record obstacles before deciding distribution or pricing.
-4. PaperCity: settle proposed Phase3 rules and values before growth implementation; retain existing local-source and balance boundaries.
+4. PaperCity: settle proposed Phase 3 rules and values before growth implementation; retain existing local-source and balance boundaries.
 5. Think/GPT Lab: review shared numerical principles and add explicit experiment CI/adoption evidence as separate work.
 
 The existing October 8 rest plan is preserved; scheduled observations do not create a new manual-work requirement. This documentation sync adds no product deployment, source merge, market request, operational-record repair, participant message or new automation.

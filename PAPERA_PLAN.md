@@ -1,5 +1,7 @@
 # paperA — Design Freeze v1.0
 
+**October 5 numerical follow-up:** inherited calculation-context and parser-state boundaries were repaired, the approved seven-point checklist was mapped to the existing contract, and scoped NC-CONTEXT/NC-EXACT adoption documentation was merged. Final evidence:444 Windows full /362 Ubuntu portable, each Python 3.11/3.12, with PR/post-merge checks. The pinned trial release, runtime/state and scheduler were not changed by this work. These merges do not replace the full-day/seven-day/CLEAN-sample gates or assert integration of unrelated candidate changes. The October 4 evidence below remains dated. [Latest work and limits](docs/WORKLOG_2026-10-05.md).
+
 > Isolated crypto shadow-market lab for stress-testing reusable trading infrastructure. No live orders, no account integration, no API keys.
 
 ## Status

@@ -1,5 +1,7 @@
 # TCC — Transaction Consistency Checker
 
+**October 5 scoped numerical adoption:** the approved seven review criteria and NC-CONTEXT/NC-EXACT were mapped to existing parser/core/file contracts and merged as documentation. Product code, samples and limits were preserved. Unit 18 and installed acceptance 55 passed in Windows/Ubuntu Python 3.10/3.12 PR/post-merge checks. These are automated package checks, not actual participant usability or paid-demand evidence. [Latest adoption scope](WORKLOG_2026-10-05.md).
+
 **October 4 completion assessment: 80% toward independently usable v0.1.** This is an editorial scope estimate; actual user tasks/feedback and distribution decision remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
 
 
@@ -11,7 +13,7 @@ TCC is the first paid-product candidate selected from the reusable-tool experime
 
 ## Current evidence
 
-- The v0.1-r1 contract and 17 synthetic CSV/expected-JSON pairs were prepared at the October 3 checkpoint. The artifact audit and acceptance harness's own 10 tests passed then; these were preparation evidence.
+- The v0.1-r 1 contract and 17 synthetic CSV/expected-JSON pairs were prepared at the October 3 checkpoint. The artifact audit and acceptance harness's own 10 tests passed then; these were preparation evidence.
 - The product now has a read-only core, CLI, Python API, JSON/text diagnostics, and a wheel without runtime dependencies.
 - **18 unit tests and all 55 external acceptance cases actually passed.** Each acceptance case ran twice with deterministic output and unchanged input.
 - A separate review found an inherited Decimal.DefaultContext defect. The repair, added regression, and reviewer recheck completed before merge.
@@ -52,7 +54,7 @@ Original experiment tests remain separate from TCC product validation. TCC's 18 
 
 | Gate | Evidence needed | Current state |
 | --- | --- | --- |
-| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions | v0.1-r1 implemented; original artifacts preserved |
+| Scope and contract | Supported schema, accounting assumptions, outputs, and exclusions | v0.1-r 1 implemented; original artifacts preserved |
 | First runnable version | Core, CLI, sample input/output, and usage guide | Complete for the defined prototype contract |
 | Automated validation | Product tests against normal and boundary cases | 18 unit tests + 55 actual acceptance cases passed |
 | Independent review | Separate review and resolution of findings | Completed; Decimal default-context repair rechecked |

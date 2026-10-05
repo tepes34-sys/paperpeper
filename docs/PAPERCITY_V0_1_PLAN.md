@@ -1,9 +1,9 @@
 # paperCity v0.1 — Prototype Plan
 
-**October 4 completion assessment: 35% toward playable v0.1.** This is an editorial scope estimate; growth, policies, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
+**Historical October 4 completion assessment:35% toward playable v0.1.** This editorial estimate was not recalculated after the October 5 Phase 3 implementation; policies, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
 
 
-**Status:** Core and nine facilities/economy types implemented and verified locally; 667 product test executions passed. Growth, policies, persistence, and UI remain planned. This is a simulation experiment, not a released game.
+**Current status, October 5:** Core, facilities/economy and Phase 3 A–F implemented and verified locally;1,099 product test executions passed. Author review fixed two boundary defects; separate independent approval, source PR/remote CI, policies, persistence, UI and playtesting remain. This is a simulation experiment, not a released game. [Phase 3 evidence](PAPERCITY_PHASE3_2026-10-05.md).
 
 paperCity is a small city-management simulation concept designed to test whether the reusable reliability modules developed around paperpeper can remain useful outside trading.
 
@@ -17,19 +17,19 @@ The earlier design-only checkpoint has progressed through Core implementation, c
 
 Nine facilities, construction/enabled-state commands, simple road connectivity, power/labor allocation, actual food flows, services, happiness/pollution, and monthly tax/maintenance are implemented. **667 product test executions passed (544 Core + 123 facilities/economy).** Ten Core authored scenarios and all 12 facilities expected scenarios were compared with actual engine outputs.
 
-Twelve facilities performance conditions and a fresh 12-timing/four-memory Core recheck passed provisional local-development budgets. Final state digests and record counts matched across retained and consumed record paths. These checks do not validate game balance, persistent recovery, a playable interface, or a release. Population is fixed in the current experiment.
+Twelve facilities performance conditions and a fresh 12-timing/four-memory Core recheck passed provisional local-development budgets. Final state digests and record counts matched across retained and consumed record paths. These checks do not validate game balance, persistent recovery, a playable interface, or a release. Population was fixed at that October 3 checkpoint; V3 migration is now covered by the October 5 evidence.
 
-The next functional gate is Phase3 growth/decline design. Initial play values, policies, persistence, City Black Box integration, and UI remain later work. The original prototype direction below remains a target wherever these capabilities are not yet implemented.
+At that checkpoint, the next functional gate was Phase 3 growth/decline design. October 5 implementation and review are recorded separately. Initial play values, policies, persistence, City Black Box integration, and UI remain later work. The original prototype direction below remains a target wherever these capabilities are not yet implemented.
 
 [Implementation, regression findings, and measurements](PAPERCITY_IMPLEMENTATION_2026-10-03.md) · [October 3 worklog](WORKLOG_2026-10-03.md#6-papercity)
 
-## October 4 independent rerun and Phase3 design
+## October 4 independent rerun and Phase 3 design
 
-The existing 667-test suite was reproduced, and six independent arithmetic/failure checks passed. Phase3 review removed proposed unemployment double-counting, clarified month-end evaluation and next-day effects, and identified new monthly observations/state-version requirements.
+The existing 667-test suite was reproduced, and six independent arithmetic/failure checks passed. Phase 3 review removed proposed unemployment double-counting, clarified month-end evaluation and next-day effects, and identified new monthly observations/state-version requirements.
 
-Zero-population recovery requires a separate proposed seed-evaluation branch. Closed-facility reopening uses a hypothetical resource/demand evaluation rather than treating zero current activity as recovery evidence. Actual observations and hypothetical results remain distinct. Twelve boundary cases were authored, with six selected calculations cross-checked against the current Phase2 planner under the stated modeling limits.
+Zero-population recovery requires a separate proposed seed-evaluation branch. Closed-facility reopening uses a hypothetical resource/demand evaluation rather than treating zero current activity as recovery evidence. Actual observations and hypothetical results remain distinct. Twelve boundary cases were authored, with six selected calculations cross-checked against the current Phase 2 planner under the stated modeling limits.
 
-All Phase3 values remain proposed; growth/decline implementation, source commit/publication, and game balance adoption are pending. Historical performance counts are local-development evidence with traced/untraced timing limits, not gameplay or release guarantees.
+At that October 4 checkpoint, Phase 3 values were proposed and implementation/source publication/balance adoption were pending. October 5 has local Phase 3 implementation; independent approval, source publication/integration and balance adoption remain separate. Historical performance counts are local-development evidence with traced/untraced timing limits, not gameplay or release guarantees.
 
 [Final day record](WORKLOG_2026-10-04.md#4-think-and-other-tracks)
 
@@ -101,7 +101,7 @@ Candidate baseline:
 - facility operation evaluated daily
 - taxes, maintenance, migration, and growth/decline evaluated monthly
 
-The simulation now has an explicit configurable day/month contract. Wall-clock speed controls, migration, growth, and the playable interface remain design targets.
+The simulation now has an explicit configurable day/month contract. V3 migration and growth now run in the local experimental engine. Wall-clock speed controls and the playable interface remain design targets.
 
 ## Visual direction
 

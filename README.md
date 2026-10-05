@@ -2,7 +2,7 @@
 
 > A public showcase of operating systems, reliability experiments, reusable modules, design decisions, a small cross-domain simulation prototype, and a transaction-checking product candidate.
 
-[Portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
+[October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
 ## 1. paperpeper
 
@@ -28,17 +28,17 @@ Two actual Windows tasks and the initial database are installed. Initial off-ses
 
 ## 3. think
 
-**September 30 checkpoint: 11 approved decisions; 12 design OPEN items resolved.** The October 3 numerical-contract proposal defines seven review principles for paperA and TCC and remains **PROPOSED**. October 4 project-specific fixes and regression evidence do not approve that proposal or establish a new shared invariant.
+**October 5 checkpoint:14 approved decisions; Decisions 012–014 ACTIVE.** The seven numeric review criteria were approved, three project-specific numerical boundaries were repaired, and NC-CONTEXT/NC-EXACT were formally adopted within explicit PaperA/TCC paths and budgets. Separate review of the invariant scope recorded 47 regressions and 623 observations; its display finding and revised exception were preserved.
 
-A design documentation layer that separates discussions, approved decisions, and enduring conditions verified across projects. Cross-project reproduction and adoption remain separate gates.
+A separate approved GPT001 formatting policy was implemented in the isolated Lab. It owns the oversell/CLI quantity display at two sites, preserving existing values, representation, partial handling and money rounding. GPT001 27/total experiments 72, declared probe and runner 10 passed locally and in the four-environment PR/post-merge checks. This display change had author review/testing and CI, without a new independent display reviewer or user trial; operating main was unchanged.
 
-[Current proposal boundary](docs/WORKLOG_2026-10-04.md#4-think-and-other-tracks) · [Document structure and transfer process](docs/WORKLOG_2026-09-30.md#3-think)
+Think remains a Markdown decision layer. Approval, bounded guarantees, implementation, project adoption and actual operation are distinct. [October 5 scope and evidence](docs/WORKLOG_2026-10-05.md#1-think-approved-decisions-and-scoped-adoption) · [Document structure](docs/WORKLOG_2026-09-30.md#3-think)
 
 ## 4. GPT Lab and reusable-module pipeline
 
 GPT Lab is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**October 3 independent rerun: 7/7 experiments · 56/56 tests passed.** The earlier checkpoint was 55 tests. Explicit experiment CI coverage remains a separate follow-up.
+**October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 
 | ID | Experiment | Role |
 |---|---|---|
@@ -60,17 +60,15 @@ These are **discovery candidates only** unless separately implemented and verifi
 
 ## 5. paperCity — simulation experiment
 
-paperCity is a small city-management simulation exploring whether reliability ideas remain useful outside trading.
+**October 5 checkpoint: Core, facilities/economy and Phase 3 A–F implemented and tested locally;1,099 passed (544 Core + 123 Phase 2 + 432 growth).** Growth/decline, paid resettlement and business reopening, actual monthly observations, occupancy classes, conserved records and input-linked validation now run in the experimental engine.
 
-**October 3 implementation checkpoint: Core and nine facilities/economy types implemented locally; 667 product test executions passed (544 Core + 123 Phase2).** The 12 facilities authored scenarios matched actual results. A 12-condition facilities long-run matrix and a fresh Core performance recheck passed provisional development budgets.
+Author review reproduced and fixed two aggregate-money/population-history defects, adding 16 regressions. Six authored execution scenarios and four fresh-process 1000/10000-day performance cells passed; both return paths and the previous Phase 3 run match in final states and all ordered-record digests/counts. These are 12-facility local experiments, not maximum-load, gameplay-balance or release guarantees.
 
-The engine implements construction/enabled-state commands, road connectivity, integer power/labor allocation, food flows, service effects, and monthly settlement. On October 4, the 667-test suite was reproduced and six independent checks passed. Phase3 growth/decline design review added zero-population and closed-facility boundaries and separates actual observations from hypothetical evaluation. Values remain proposed; no Phase3 implementation or source publication is claimed. Policies, persistence, UI, and playtesting remain future gates.
-
-[Implementation, regressions, measurements, and limits](docs/PAPERCITY_IMPLEMENTATION_2026-10-03.md) · [paperCity v0.1 prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
+The cumulative Phase 3 source remains local/uncommitted at this publication cutoff. Separate independent approval, source PR/remote CI, policy effects, save/recovery, UI and playtesting remain follow-ups. [Phase 3 implementation and measured evidence](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
 ## 6. TCC — Transaction Consistency Checker
 
-**October 4 checkpoint: v0.1.0 read-only core, CLI, Python API, and package implemented against the v0.1-r1 contract.** Actual product validation passed 18 unit tests and 55 external acceptance cases. Repeated acceptance runs preserved inputs and produced deterministic output.
+**October 4 checkpoint: v0.1.0 read-only core, CLI, Python API, and package implemented against the v0.1-r 1 contract.** Actual product validation passed 18 unit tests and 55 external acceptance cases. Repeated acceptance runs preserved inputs and produced deterministic output.
 
 A separate review identified an inherited Decimal default-context defect; the repair and regression were rechecked. A fresh Windows Python 3.12.14 installation worked outside the source repository. The reviewed version is merged in its private development repository; post-merge CI passed on Windows/Linux with Python 3.10/3.12.
 
@@ -80,7 +78,7 @@ A separated participant/facilitator trial kit was reviewed and merged. The parti
 
 [TCC product direction and validation gates](docs/TCC_V0_1_PLAN.md)
 
-## Estimated current-version completion
+## Historical October 4 editorial completion estimates
 
 | Project | Estimate | Main remaining gate |
 | --- | ---: | --- |
@@ -91,7 +89,7 @@ A separated participant/facilitator trial kit was reviewed and merged. The parti
 | Think | 70% | Proposal review/approval, shared invariant evidence and cross-project adoption |
 | PaperCity | 35% | Growth, policies, persistence, UI, integrated playtesting and balance |
 
-Editorial scope estimates with roughly 5–10 percentage points of judgment uncertainty; required gates remain mandatory. Each project has a different completion target. These percentages do not measure profitability, commercial validation or release readiness. [Targets, weighted rationale and consolidated evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md).
+These dated estimates were not recalculated on October 5; the [new evidence](docs/WORKLOG_2026-10-05.md) supersedes their Think/GPT Lab/PaperCity gate descriptions. Editorial scope estimates with roughly 5–10 percentage points of judgment uncertainty; required gates remain mandatory. Each project has a different completion target. These percentages do not measure profitability, commercial validation or release readiness. [Targets, weighted rationale and consolidated evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md).
 
 ## Public disclosure policy
 
@@ -101,7 +99,7 @@ Exclude credential values, secrets, account identifiers, personal data, private 
 
 ## Reading the records
 
-The [October 4 note](docs/WORKLOG_2026-10-04.md) preserves operating safety, TCC trial preparation and earlier implementation history. The [later portfolio report](docs/PORTFOLIO_PROGRESS_2026-10-04.md) adds PaperA steps 8–14 preparation, actual candidate installation and remaining real-session gates. The October 3 and September 30 notes retain their dated evidence. GPT Lab retains its earlier checkpoint; scheduled operation, actual users, and later implementation remain separate gates.
+The [October 4 note](docs/WORKLOG_2026-10-04.md) preserves operating safety, TCC trial preparation and earlier implementation history. The [later portfolio report](docs/PORTFOLIO_PROGRESS_2026-10-04.md) adds PaperA steps 8–14 preparation, actual candidate installation and remaining real-session gates. The October 3 and September 30 notes retain their dated evidence. The [October 5 record](docs/WORKLOG_2026-10-05.md) adds approved numerical work and PaperCity Phase 3 implementation. Scheduled operation, actual users and release remain separate gates.
 
 ---
 
