@@ -54,3 +54,9 @@ Native process peak includes preparation and differs from traced Python allocati
 Author review is not a separate independent reviewer's approval. Existing Core/facilities/economy source, V3 schema and default experimental settings were preserved. The cumulative Phase 3 source is still local/uncommitted at this publication cutoff. Next: independent review preparation, source PR/remote validation, then a separate Phase 4 policy slice. Persistent save/recovery, UI, City Black Box, external playtesting and release remain later work.
 
 [October 5 cross-project evidence](WORKLOG_2026-10-05.md) · [Prototype plan](PAPERCITY_V0_1_PLAN.md)
+
+## Follow-up after the initial publication
+
+The cumulative experimental Phase3 source and author fixes have now been committed and pushed to an isolated branch, with a draft change prepared for separate review. The tested local source and committed source match exactly. Windows and Ubuntu Python 3.12 passed 1,099 tests per job for both push and pull-request runs; all four downloaded result files confirmed 544 Core + 123 facilities/economy + 432 growth, with no failures, errors or skips. Those repeated jobs are not four distinct supported environments or 4,396 unique tests.
+
+Separate reviewer approval, main integration and game-balance adoption remain pending. Phase4 policy preparation is DESIGN_ONLY: a two-tax-control first slice, explicit command timing/no-change/rollback, nonretroactive daily tax accrual and one monthly rounding step, and 12 planned checks. The current engine has no company-level after-tax cash/profit state; changing city tax receipts alone does not implement a policy tradeoff. No policy code, product-policy test or adopted balance result is claimed.

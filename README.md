@@ -64,7 +64,7 @@ These are **discovery candidates only** unless separately implemented and verifi
 
 Author review reproduced and fixed two aggregate-money/population-history defects, adding 16 regressions. Six authored execution scenarios and four fresh-process 1000/10000-day performance cells passed; both return paths and the previous Phase 3 run match in final states and all ordered-record digests/counts. These are 12-facility local experiments, not maximum-load, gameplay-balance or release guarantees.
 
-The cumulative Phase 3 source remains local/uncommitted at this publication cutoff. Separate independent approval, source PR/remote CI, policy effects, save/recovery, UI and playtesting remain follow-ups. [Phase 3 implementation and measured evidence](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
+The cumulative experimental Phase3 source is now committed/pushed with a draft change for separate review. Windows/Ubuntu Python 3.12 each passed 1,099 tests in both push/PR runs, confirmed from all four result files. Separate independent approval, main integration, game-balance adoption, policy implementation, save/recovery, UI and playtesting remain follow-ups. Phase4 policy preparation is a design-only draft with 12 planned checks. [Phase 3 implementation and measured evidence](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
 ## 6. TCC — Transaction Consistency Checker
 
