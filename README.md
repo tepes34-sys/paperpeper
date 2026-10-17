@@ -10,7 +10,7 @@
 
 - **Paperpeper / Kanna:** observation logging integrated; credential protection remains a draft awaiting CI/integration. The separate setup helper has 95/95 independent dummy checks; executor v0.3 has 51/51 author checks and 14/14 mutations, with independent rereview pending. Manual Position Protection Phase 1 design v0.3.6 passed independent design review and has recorded approval; S1 implementation remains on hold.
 - **PaperCity:** Phase 5 A–F save/load, execution history, City Black Box, reconciliation, backup and explicit recovery locally completed. Recorded evidence: 197 persistence / 1,663 total tests, seven process-termination boundaries and four 1,000/10,000-day conditions. Independent review, remote CI and Phase 5 integration remain pending.
-- **GPT Lab:** October 10 and 17 numerical repairs merged into the isolated experiment branch. Latest reported local baseline: 79 tests, 1,000 randomized cases and 300 report-to-risk integration cases. Latest remote CI is pending because of the Actions limit; no operating-main promotion or user validation is claimed.
+- **PaperB:** October 10 and 17 numerical repairs merged into the isolated experiment branch. Latest reported local baseline: 79 tests, 1,000 randomized cases and 300 report-to-risk integration cases. Latest remote CI is pending because of the Actions limit; no operating-main promotion or user validation is claimed.
 - **PaperA / Think / TCC:** retain their dated numerical/adoption and prototype evidence. PaperA runtime gates and actual TCC participant/commercial validation were not newly verified.
 - **October policy:** Kanna safety is the priority; PaperA is in maintenance; new PaperCity/TCC development is paused. Recheck billing/limits and required CI on November 1. Local schedules remain separate from GitHub Actions.
 
@@ -46,9 +46,11 @@ A separate approved GPT001 formatting policy was implemented in the isolated Lab
 
 Think remains a Markdown decision layer. Approval, bounded guarantees, implementation, project adoption and actual operation are distinct. [October 5 scope and evidence](docs/WORKLOG_2026-10-05.md#1-think-approved-decisions-and-scoped-adoption) · [Document structure](docs/WORKLOG_2026-09-30.md#3-think)
 
-## 4. GPT Lab and reusable-module pipeline
+## 4. PaperB and reusable-module pipeline
 
-GPT Lab is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
+[PaperB project overview](docs/PaperB.md)
+
+PaperB is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
 **October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 
@@ -99,11 +101,11 @@ A separated participant/facilitator trial kit was reviewed and merged. The parti
 | Paperpeper | 90% | Normal October 5–6 scheduled evidence; two unresolved measurements |
 | PaperA | 80% | Independent review/main integration, full-day trial, real seven-day and clean samples |
 | TCC | 80% | Independent user trials and distribution decision |
-| GPT Lab | 80% | Explicit experiment CI and documented downstream reuse validation |
+| PaperB | 80% | Explicit experiment CI and documented downstream reuse validation |
 | Think | 70% | Proposal review/approval, shared invariant evidence and cross-project adoption |
 | PaperCity | 35% | Growth, policies, persistence, UI, integrated playtesting and balance |
 
-These dated estimates were not recalculated on October 5; the [new evidence](docs/WORKLOG_2026-10-05.md) supersedes their Think/GPT Lab/PaperCity gate descriptions. Editorial scope estimates with roughly 5–10 percentage points of judgment uncertainty; required gates remain mandatory. Each project has a different completion target. These percentages do not measure profitability, commercial validation or release readiness. [Targets, weighted rationale and consolidated evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md).
+These dated estimates were not recalculated on October 5; the [new evidence](docs/WORKLOG_2026-10-05.md) supersedes their Think/PaperB/PaperCity gate descriptions. Editorial scope estimates with roughly 5–10 percentage points of judgment uncertainty; required gates remain mandatory. Each project has a different completion target. These percentages do not measure profitability, commercial validation or release readiness. [Targets, weighted rationale and consolidated evidence](docs/PORTFOLIO_PROGRESS_2026-10-04.md).
 
 ## Public disclosure policy
 

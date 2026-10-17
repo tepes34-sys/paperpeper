@@ -25,11 +25,11 @@ These are editorial estimates of delivered scope, not measured probabilities, pr
 | Paperpeper | **90%** | v2.1 paper-operation reliability | Safety repairs, checkpoint audit, saved-prompt verification | Normal October 5–6 scheduled evidence; two unresolved measurements |
 | PaperA | **80%** | Design Freeze v1.0 reliability lab | Steps 8–12 implemented/tested; pinned candidate and two scheduler tasks installed | Independent review/main integration, full-day trial, real seven-day and clean samples |
 | TCC | **80%** | Externally usable v0.1 checker | Core/CLI/API/wheel, tests, fresh installation, reviewed trial kit | Independent user trials and distribution decision |
-| GPT Lab | **80%** | Reusable baseline experiments 001–007 | Seven prototypes; 56 tests at the October 3 independent checkpoint | Explicit experiment CI and documented downstream reuse validation |
+| PaperB | **80%** | Reusable baseline experiments 001–007 | Seven prototypes; 56 tests at the October 3 independent checkpoint | Explicit experiment CI and documented downstream reuse validation |
 | Think | **70%** | First shared decision-and-invariant workflow | 11 approved decisions and project links; numerical proposal prepared | Proposal review/approval, shared invariant evidence and cross-project adoption |
 | PaperCity | **35%** | Playable v0.1 simulation | Core and nine facilities/economy types; 667 test executions | Growth, policies, persistence, UI, integrated playtesting and balance |
 
-Paperpeper's target is reliable paper operation; live brokerage trading is outside this score. PaperA's target includes actual reliability and sample gates. TCC's target is an independently usable first version, while commercial demand is separately unverified. Think is a documentation/governance track. GPT Lab covers baseline experiments 001–007; discovery candidates 008–017 are excluded from the denominator. PaperCity's target includes a playable interface and game behavior, so Core test success covers only part of the goal. No portfolio-wide average is reported.
+Paperpeper's target is reliable paper operation; live brokerage trading is outside this score. PaperA's target includes actual reliability and sample gates. TCC's target is an independently usable first version, while commercial demand is separately unverified. Think is a documentation/governance track. PaperB covers baseline experiments 001–007; discovery candidates 008–017 are excluded from the denominator. PaperCity's target includes a playable interface and game behavior, so Core test success covers only part of the goal. No portfolio-wide average is reported.
 
 ## Consolidated work and evidence
 
@@ -71,7 +71,7 @@ Participant instructions, four independent synthetic datasets, feedback form and
 
 Eleven approved decisions and their project links remain the baseline. Seven numerical-contract review principles are still PROPOSED. Recent finite-value, Decimal-context, ledger-signature, conservation, VOID and error-evidence fixes supply project-specific examples. Documentation publication does not approve new Decisions or establish a shared invariant. Remaining work is a separate review/approval decision and recorded cross-project reproduction/adoption.
 
-### GPT Lab — dated baseline evidence
+### PaperB — dated baseline evidence
 
 Seven baseline module experiments retain the **October 3 independent 56-test checkpoint**. This publication did not rerun them. Their defined automated contracts are test-verified; explicit experiment CI and recorded downstream reuse validation remain separate follow-ups. TCC's pattern-level reuse assessment does not establish direct adoption of the original ledger core. Candidates 008–017 remain discovery-only. None of this establishes external users, production operation or commercial readiness.
 
@@ -124,7 +124,7 @@ Each project's available points total 100. Awarded points reflect the evidence a
 | Distribution decision and release documentation | 5 | 0 |
 | **Total** | **100** | **80** |
 
-### GPT Lab
+### PaperB
 
 | Milestone | Available points | Awarded |
 | --- | ---: | ---: |
@@ -166,7 +166,7 @@ Each project's available points total 100. Awarded points reflect the evidence a
 2. PaperA: independently review the stacked candidate, complete source integration with fresh checks when authorized, and observe the October 5 full-day trial. Evaluate actual October 6–12 records only if the trial passes; extend samples only under the frozen policy.
 3. TCC: use the separated trial kit with actual participants when available; record obstacles before deciding distribution or pricing.
 4. PaperCity: settle proposed Phase 3 rules and values before growth implementation; retain existing local-source and balance boundaries.
-5. Think/GPT Lab: review shared numerical principles and add explicit experiment CI/adoption evidence as separate work.
+5. Think/PaperB: review shared numerical principles and add explicit experiment CI/adoption evidence as separate work.
 
 The existing October 8 rest plan is preserved; scheduled observations do not create a new manual-work requirement. This documentation sync adds no product deployment, source merge, market request, operational-record repair, participant message or new automation.
 

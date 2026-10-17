@@ -48,7 +48,7 @@ The implementation follows the supported normalized transaction schema. It valid
 
 ## Reuse candidate: Ledger Inspector
 
-GPT Lab experiment 001 informed reading, Decimal validation, and test organization. Its trading-ledger core was not directly reused under TCC's different contract. Its earlier checkpoint remains documented in the [showcase module pipeline](../README.md#4-gpt-lab-and-reusable-module-pipeline).
+PaperB experiment 001 informed reading, Decimal validation, and test organization. Its trading-ledger core was not directly reused under TCC's different contract. Its earlier checkpoint remains documented in the [showcase module pipeline](../README.md#4-PaperB-and-reusable-module-pipeline).
 
 Original experiment tests remain separate from TCC product validation. TCC's 18 unit tests, 55 actual acceptance cases, fresh installation, and independent review are its own evidence.
 
