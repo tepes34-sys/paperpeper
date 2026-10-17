@@ -8,11 +8,13 @@
 
 [Detailed progress and remaining gates](docs/WORKLOG_2026-10-17.md)
 
-- **Paperpeper / Kanna:** observation logging integrated; credential protection remains a draft awaiting CI/integration. The separate setup helper has 95/95 independent dummy checks; executor v0.3 has 51/51 author checks and 14/14 mutations, with independent rereview pending. Manual Position Protection Phase 1 design v0.3.6 passed independent design review and has recorded approval; S1 implementation remains on hold.
+- **Paperpeper / Kanna:** observation logging integrated; credential protection remains a draft awaiting CI/integration. The separate setup helper has 95/95 independent dummy checks; executor v0.3 has 51/51 author checks and 14/14 mutations, with independent rereview pending. Manual Position Protection Phase 1 design v0.3.6 passed independent design review and has recorded approval; design, implementation review and operating integration retain separate evidence gates.
 - **PaperCity:** Phase 5 A–F save/load, execution history, City Black Box, reconciliation, backup and explicit recovery locally completed. Recorded evidence: 197 persistence / 1,663 total tests, seven process-termination boundaries and four 1,000/10,000-day conditions. Independent review, remote CI and Phase 5 integration remain pending.
-- **PaperB:** October 10 and 17 numerical repairs merged into the isolated experiment branch. Latest reported local baseline: 79 tests, 1,000 randomized cases and 300 report-to-risk integration cases. Latest remote CI is pending because of the Actions limit; no operating-main promotion or user validation is claimed.
+- **PaperB:** October 10 and 17 numerical repairs merged into the isolated experiment branch. The existing 79-test baseline, three declared weekly probes and 10 runner-contract tests were separately rerun locally on Windows/Python 3.12. Full contract rereview remains separate. Latest remote CI is pending because of the Actions limit; no operating-main promotion or user validation is claimed.
 - **PaperA / Think / TCC:** retain their dated numerical/adoption and prototype evidence. PaperA runtime gates and actual TCC participant/commercial validation were not newly verified.
 - **October policy:** Kanna safety is the priority; PaperA is in maintenance; new PaperCity/TCC development is paused. Recheck billing/limits and required CI on November 1. Local schedules remain separate from GitHub Actions.
+
+A weekly-report structure review also identified cutoff/sample labels, duplicate-table consolidation and an appendix for normal detail. These are reviewed requirements, with no report-generator implementation claim. See the end-of-day addendum in the worklog.
 
 The sections below preserve dated checkpoints. Their old dates and completion estimates do not describe fresh operating verification. Live trading stays disabled.
 
