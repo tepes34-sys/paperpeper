@@ -1,5 +1,7 @@
 # TCC — Transaction Consistency Checker
 
+**October 17 status refresh:** new development is paused under the October resource policy. Existing prototype, trial kit and numerical adoption are preserved. Actual independent participant trials, distribution, willingness to pay and revenue remain unverified; the historical tests below were not rerun for this update. [Current portfolio status](WORKLOG_2026-10-17.md).
+
 **October 5 scoped numerical adoption:** the approved seven review criteria and NC-CONTEXT/NC-EXACT were mapped to existing parser/core/file contracts and merged as documentation. Product code, samples and limits were preserved. Unit 18 and installed acceptance 55 passed in Windows/Ubuntu Python 3.10/3.12 PR/post-merge checks. These are automated package checks, not actual participant usability or paid-demand evidence. [Latest adoption scope](WORKLOG_2026-10-05.md).
 
 **October 4 completion assessment: 80% toward independently usable v0.1.** This is an editorial scope estimate; actual user tasks/feedback and distribution decision remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).

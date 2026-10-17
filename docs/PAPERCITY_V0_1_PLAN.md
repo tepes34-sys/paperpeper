@@ -1,5 +1,9 @@
 # paperCity v0.1 — Prototype Plan
 
+**October 17 update:** Phase 5 A–F was locally implemented and tested on October 7: save/load, schema 2 execution history, City Black Box, read-only reconciliation, SQLite backup and explicit recovery, with schema 1 compatibility and a separate upgrade path. Recorded results: **197 persistence / 1,663 total tests**, zero failures/errors/skips, seven process-termination boundaries and four 1,000/10,000-day record-consumption conditions. These counts are not additive. Independent review, remote CI and Phase 5 development-main integration remain pending. Phase 6 UI/interaction/gameplay is the next product stage, subject to the October development pause. [Latest scope and limitations](WORKLOG_2026-10-17.md#2-papercity-phase-5).
+
+The sections below are dated design and implementation history. The October 5 persistence/Black Box TODO wording is superseded by this local checkpoint; broader policy behavior, balance and release claims remain open.
+
 **Historical October 4 completion assessment:35% toward playable v0.1.** This editorial estimate was not recalculated after the October 5 Phase 3 implementation; remaining policy behavior/controls, save/load/recovery, UI and integrated playtesting/balance remain. Automated tests do not establish user or release readiness. [Weighted assessment and consolidated work](PORTFOLIO_PROGRESS_2026-10-04.md).
 
 

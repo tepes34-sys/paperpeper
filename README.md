@@ -4,6 +4,18 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
+## October 17, 2026 — current checkpoint
+
+[Detailed progress and remaining gates](docs/WORKLOG_2026-10-17.md)
+
+- **Paperpeper / Kanna:** observation logging integrated; credential protection remains a draft awaiting CI/integration. The separate setup helper has 95/95 independent dummy checks; executor v0.3 has 51/51 author checks and 14/14 mutations, with independent rereview pending. Manual Position Protection Phase 1 design v0.3.6 passed independent design review and has recorded approval; S1 implementation remains on hold.
+- **PaperCity:** Phase 5 A–F save/load, execution history, City Black Box, reconciliation, backup and explicit recovery locally completed. Recorded evidence: 197 persistence / 1,663 total tests, seven process-termination boundaries and four 1,000/10,000-day conditions. Independent review, remote CI and Phase 5 integration remain pending.
+- **GPT Lab:** October 10 and 17 numerical repairs merged into the isolated experiment branch. Latest reported local baseline: 79 tests, 1,000 randomized cases and 300 report-to-risk integration cases. Latest remote CI is pending because of the Actions limit; no operating-main promotion or user validation is claimed.
+- **PaperA / Think / TCC:** retain their dated numerical/adoption and prototype evidence. PaperA runtime gates and actual TCC participant/commercial validation were not newly verified.
+- **October policy:** Kanna safety is the priority; PaperA is in maintenance; new PaperCity/TCC development is paused. Recheck billing/limits and required CI on November 1. Local schedules remain separate from GitHub Actions.
+
+The sections below preserve dated checkpoints. Their old dates and completion estimates do not describe fresh operating verification. Live trading stays disabled.
+
 ## 1. paperpeper
 
 U.S. equity paper trading, an isolated Lab, and reusable reliability experiments.
@@ -64,7 +76,7 @@ These are **discovery candidates only** unless separately implemented and verifi
 
 Two separate AI reviewers inspected growth/recovery and policy code independently of the implementation author. Both reproduced a P2 ordering defect at facility ID width changes: valid sparse restored cities could fail after construction. The author repaired paired asset/lifecycle ordering in both producers and independent command replay; the reviewers rechecked the fixes and reported no unresolved blocker. Twelve new product regressions cover 10,000 / 100,000 / 1,000,000 sequence boundaries, strict JSON restore, mixed commands, actual advancement and forged-order rejection. Independent scratch checks are recorded separately from the product-test count. This is an independent AI-agent review, not a human code-review or user-trial claim.
 
-Next: resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. Remaining policy controls, persistence/recovery, City Black Box, UI, game balance, external playtesting and release remain separate gates.
+At the October 5 checkpoint, the next step was to resolve the P4-BEH behavior contract before adopting coefficients or implementing tax effects on happiness, migration, closure and reopening. The current tax slice changes actual city receipts and charges policy-change fees; it does not yet model company after-tax profit or prove policy tradeoffs. The October 17 update supersedes the persistence/Black Box status; policy controls, UI, balance, playtesting and release still require separate evidence.
 
 [Phase 3 history](docs/PAPERCITY_PHASE3_2026-10-05.md) · [Phase 4 tax and closing evidence](docs/PAPERCITY_PHASE4_2026-10-05.md) · [Revised week](docs/WEEKLY_PLAN_2026-10-05.md) · [Prototype plan](docs/PAPERCITY_V0_1_PLAN.md)
 
