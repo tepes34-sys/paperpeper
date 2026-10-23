@@ -4,7 +4,20 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-## October 17, 2026 — current checkpoint
+## October 24, 2026 — latest weekly checkpoint
+
+[October 19–24 work, verification and remaining gates](docs/WORKLOG_2026-10-24.md)
+
+- **Kanna protection:** S2 management/ledger integration and S3 paper-order gates passed independent implementation review and were committed/pushed as open draft changes. Both remain unmerged and undeployed. S3 independent full run: **914 executed, 911 successful, 3 skipped, no failures/errors**; separate equivalence **12/12** and mutations **9/9**.
+- **S4:** PLAN-R3 passed on October 24. Seven isolated model cases support the plan review; actual S4 implementation, decisions and validation remain pending approval.
+- **Recovery policy:** H1 selected; H2 and design v0.3.8 deferred. Earlier model improvements are not adoption or operating evidence.
+- **Collaboration/tooling:** PHASE HARDEN-R4 source review passed with explicit execution/provenance limits. Context7/Skills/Obsidian roles were set; bounded task-local skill use and Vault readback were recorded. Global rollout is not established. LangGraph E0–E4 has an author-reported 19-test result; E5/E6 remain deferred.
+- **CI:** both implementation heads have failed check records with no steps/logs returned. No successful CI result is established. Recorded label: **CI pending — Actions limit**; actual billing recovery needs a fresh check.
+- **Other projects:** preserve dated PaperA/PaperB/PaperCity/Think/TCC evidence and remaining gates; this update adds no operating, user or commercial validation.
+
+The following checkpoints are historical and retain their dates.
+
+## October 17, 2026 — historical checkpoint
 
 [Detailed progress and remaining gates](docs/WORKLOG_2026-10-17.md)
 
