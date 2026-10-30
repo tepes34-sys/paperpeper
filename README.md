@@ -4,7 +4,19 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-## October 24, 2026 — latest weekly checkpoint
+## October 30, 2026 — protection candidate integrated; operating application pending
+
+[October 24–30 protection work, verification and remaining gates](docs/WORKLOG_2026-10-30.md)
+
+- **S4 and S5:** implementation rereviews passed. Suggestion filtering and dashboard/report display have dated local and independent evidence.
+- **S6:** final result review passed and the verification stage closed under its recorded criteria. Submitted crash coverage, independent barrier tests and copied-database rehearsal remain distinct; unreached and power-loss/internal-SQL limits are preserved.
+- **S7:** the test-only fixes and external release tools passed implementation rereview. Development-main integration is confirmed, and the integrated tree matches the reviewed candidate.
+- **Local regression:** the retained independent Windows runs on Python 3.14.7 and 3.12.10 each report 995 tests OK with 3 skips (992 successful, no failures/errors). Author runs reported 1 skip; the archive excludes two real-file fixtures. These are dated test results, not reruns performed for this publication.
+- **CI exception:** integration proceeded under an explicit user-approved exception before successful CI. An independently read check annotation reports that execution was refused because of billing/spending-limit eligibility. Required CI is planned for November 1 when the user requests it; recovery is not guaranteed.
+- **Still pending:** pre-application checks and backup, operating-checkout application, two qualifying unused-protection sessions, separately approved activation/observation, and final S7 result review. **S7 and Phase 2 are not fully complete.**
+- **Scope:** no operating DB/account access, scheduler or product change, new test run, user trial or commercial validation was performed by this documentation synchronization.
+
+## October 24, 2026 — historical weekly checkpoint
 
 [October 19–24 work, verification and remaining gates](docs/WORKLOG_2026-10-24.md)
 
