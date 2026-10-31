@@ -4,7 +4,17 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-## October 31, 2026 — PaperB validation candidate
+## October 31, 2026 — PaperB 001/006 follow-up
+
+[Ledger/reconciliation validation and limits](docs/PAPERB_001_006_2026-10-31.md)
+
+- **Latest unmerged candidate:** 85/85 tests and seven probes passed locally on Windows/Python 3.14.7 and 3.12.10. It is stacked on the earlier 84-test draft; the merged baseline is still 82.
+- **Repair:** reject duplicate normalized ledger CSV headers. All 12 subtests failed before repair; the reverted-guard mutant was detected. 006 produced no new defect.
+- **Supplementary checks:** 54 boundary/CLI, 1,000 randomized, 300 synthetic prefix/replay integration scenarios and ten synthetic fixtures. Ten runner checks remain separate.
+- **Limits:** 001/006 stay logic-verified pending independent review. This is not real process-crash/DB recovery, operating deployment, user testing or commercial validation. No successful remote CI is established.
+- **Next:** proposed baseline 85 tests/seven probes; focus 002 Report Generator / 007 Broker Adapter.
+
+## Earlier October 31 checkpoint — PaperB 004/005 candidate
 
 [PaperB weekly validation and remaining gates](docs/PAPERB_WEEKLY_2026-10-31.md)
 
@@ -12,7 +22,7 @@
 - **Unmerged draft candidate:** 84/84 locally passed on Windows/Python 3.14.7 and 3.12.10, with six probes; ten runner-contract tests remain separate.
 - **004/005 focus:** 54 boundary, 1,000 randomized, 300 integration and ten sanitized fixture scenarios. Two comparator CSV-input defects were repaired; both new regressions failed before the fix.
 - **Evidence gates:** changed 005 is logic-verified pending independent review. Candidate CI did not execute because of payment/spending-limit eligibility. No experiment integration, operating deployment, user trial or commercial validation is claimed.
-- **Next:** 001 Ledger Inspector / 006 Reconciler; proposed next baseline 84 tests plus six probes, subject to review/integration.
+- **At this earlier checkpoint:** 001 Ledger Inspector / 006 Reconciler was the next focus. Its later validation is recorded above; the earlier 84-test draft remains unmerged.
 
 ## October 30, 2026 — protection candidate integrated; operating application pending
 
@@ -90,7 +100,7 @@ Think remains a Markdown decision layer. Approval, bounded guarantees, implement
 
 PaperB is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**October 31 current checkpoint:** merged baseline **82 tests + five probes**; separate unmerged draft candidate **84 tests + six probes**. Both Windows/Python 3.14.7 and 3.12.10 passed the candidate locally. Changed 005 remains **logic-verified pending independent review**; CI has not executed because of payment/spending-limit eligibility. [Validation details](docs/PAPERB_WEEKLY_2026-10-31.md).
+**October 31 current checkpoint:** merged baseline **82 tests + five probes**; earlier unmerged draft **84 tests + six probes**; latest stacked draft **85 tests + seven probes**. Both Windows/Python 3.14.7 and 3.12.10 passed the latest candidate locally. 001/005/006 retain logic-verified status and their pending independent-review gates. No successful remote CI is established. [Latest 001/006 details](docs/PAPERB_001_006_2026-10-31.md) · [Earlier 004/005 details](docs/PAPERB_WEEKLY_2026-10-31.md).
 
 **Historical October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 
