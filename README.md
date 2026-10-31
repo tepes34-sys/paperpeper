@@ -4,6 +4,16 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
+## October 31, 2026 — PaperB validation candidate
+
+[PaperB weekly validation and remaining gates](docs/PAPERB_WEEKLY_2026-10-31.md)
+
+- **Merged research checkpoint:** 82 baseline tests and five probes.
+- **Unmerged draft candidate:** 84/84 locally passed on Windows/Python 3.14.7 and 3.12.10, with six probes; ten runner-contract tests remain separate.
+- **004/005 focus:** 54 boundary, 1,000 randomized, 300 integration and ten sanitized fixture scenarios. Two comparator CSV-input defects were repaired; both new regressions failed before the fix.
+- **Evidence gates:** changed 005 is logic-verified pending independent review. Candidate CI did not execute because of payment/spending-limit eligibility. No experiment integration, operating deployment, user trial or commercial validation is claimed.
+- **Next:** 001 Ledger Inspector / 006 Reconciler; proposed next baseline 84 tests plus six probes, subject to review/integration.
+
 ## October 30, 2026 — protection candidate integrated; operating application pending
 
 [October 24–30 protection work, verification and remaining gates](docs/WORKLOG_2026-10-30.md)
@@ -80,7 +90,9 @@ Think remains a Markdown decision layer. Approval, bounded guarantees, implement
 
 PaperB is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
+**October 31 current checkpoint:** merged baseline **82 tests + five probes**; separate unmerged draft candidate **84 tests + six probes**. Both Windows/Python 3.14.7 and 3.12.10 passed the candidate locally. Changed 005 remains **logic-verified pending independent review**; CI has not executed because of payment/spending-limit eligibility. [Validation details](docs/PAPERB_WEEKLY_2026-10-31.md).
+
+**Historical October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 
 | ID | Experiment | Role |
 |---|---|---|
