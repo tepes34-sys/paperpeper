@@ -4,7 +4,18 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-## October 31, 2026 — PaperB 001/006 follow-up
+## October 31, 2026 — PaperB 002/007 follow-up; independent review next
+
+[Report/adapter validation and review gates](docs/PAPERB_002_007_2026-10-31.md)
+
+- **Latest stacked draft:** 87/87 tests and eight probes passed on Windows/Python 3.14.7 and 3.12.10. The merged research baseline remains 82 tests/five probes.
+- **002:** repaired duplicate normalized CSV headers and malformed P/L parsing that affected caller Decimal flags/diagnostics. Two new regressions failed before repair; two reverted-fix mutants were detected.
+- **007:** implementation unchanged. Duplicate submissions and instance-local/reusable fake IDs remain explicit limitations; ACCEPTED does not represent a fill.
+- **New probe:** 41 boundary/CLI, 1,000 randomized, 300 synthetic-completion integration scenarios and ten synthetic fixtures. Ten runner checks remain separate.
+- **Gates:** changed 002 is logic-verified pending independent review. Remote jobs did not start because of payment/spending-limit eligibility. No code integration, operating adoption, user trial or commercial validation is claimed.
+- **Next priority:** independent review of the stacked candidate bundle, executable CI and separate merge decisions. Later weekly focus 003/004 follows candidate cleanup.
+
+## Earlier October 31 checkpoint — 001/006 follow-up
 
 [Ledger/reconciliation validation and limits](docs/PAPERB_001_006_2026-10-31.md)
 
@@ -12,7 +23,7 @@
 - **Repair:** reject duplicate normalized ledger CSV headers. All 12 subtests failed before repair; the reverted-guard mutant was detected. 006 produced no new defect.
 - **Supplementary checks:** 54 boundary/CLI, 1,000 randomized, 300 synthetic prefix/replay integration scenarios and ten synthetic fixtures. Ten runner checks remain separate.
 - **Limits:** 001/006 stay logic-verified pending independent review. This is not real process-crash/DB recovery, operating deployment, user testing or commercial validation. No successful remote CI is established.
-- **Next:** proposed baseline 85 tests/seven probes; focus 002 Report Generator / 007 Broker Adapter.
+- **At this earlier checkpoint:** the proposed 85-test/seven-probe baseline led to the later 002/007 validation above. Its candidate still remains unmerged.
 
 ## Earlier October 31 checkpoint — PaperB 004/005 candidate
 
@@ -100,7 +111,7 @@ Think remains a Markdown decision layer. Approval, bounded guarantees, implement
 
 PaperB is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**October 31 current checkpoint:** merged baseline **82 tests + five probes**; earlier unmerged draft **84 tests + six probes**; latest stacked draft **85 tests + seven probes**. Both Windows/Python 3.14.7 and 3.12.10 passed the latest candidate locally. 001/005/006 retain logic-verified status and their pending independent-review gates. No successful remote CI is established. [Latest 001/006 details](docs/PAPERB_001_006_2026-10-31.md) · [Earlier 004/005 details](docs/PAPERB_WEEKLY_2026-10-31.md).
+**October 31 current checkpoint:** merged research baseline **82 tests/five probes**; unmerged candidate sequence **84/six → 85/seven → 87/eight**. The latest draft passed on Windows/Python 3.14.7 and 3.12.10. 001/002/005/006 preserve their logic-verified/pending-review boundaries. CI did not execute because of payment/spending-limit eligibility. [Latest 002/007 evidence](docs/PAPERB_002_007_2026-10-31.md).
 
 **Historical October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 

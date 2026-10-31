@@ -2,7 +2,23 @@
 
 PaperB is the isolated reusable-module research track within the existing Kanna repository. Its seven experiments cover ledger inspection, reports, event records, numeric risk checks, paired comparison, recovery reconciliation, and a minimal broker-adapter boundary.
 
-## Latest follow-up — October 31, 2026: 001/006 candidate
+## Latest follow-up — October 31, 2026: 002/007 candidate
+
+The merged research baseline remains **82 tests and five probes**. Three dependent drafts remain unmerged: **84/six → 85/seven → 87/eight**. The latest candidate has **30 / 10 / 10 / 9 / 11 / 13 / 4** tests for experiments 001–007.
+
+Windows/Python **3.14.7 and 3.12.10** passed all **87 tests and eight probes**, with no skips, errors or assertion failures. Ten runner-contract checks remain separate. The new probe executed 41 boundary/CLI, 1,000 randomized, 300 synthetic-completion integration scenarios and ten synthetic fixtures.
+
+002 now rejects duplicate normalized CSV headers and parses malformed P/L through an owned Decimal context. Its two new regression methods failed before repair; two reverted-fix mutants were detected. **002 is logic-verified pending independent review.** Its first-seen trade-ID policy is preserved, including exclusion of a later correction for an ID already encountered in an invalid P/L row.
+
+007 implementation is unchanged. Duplicate submissions create separate fake orders, new instances restart their IDs and externally clearing the public order list can allow ID reuse. No idempotency, global/durable ID uniqueness, partial-fill handling or real broker execution is implemented by these checks. ACCEPTED is not a fill.
+
+Candidate CI jobs had no executed steps; their annotation reports payment/spending-limit ineligibility. Status remains **CI pending — Actions limit**. No new operating collection, order, deployment, user trial or commercial validation occurred.
+
+**Immediate next gate: independent review of the dependent draft bundle, executable CI and separate merge decisions.** The next proposed validation baseline is 87 tests/eight probes. Later weekly focus 003/004 follows candidate cleanup; additional experiments do not close pending review gates.
+
+[002/007 evidence and limits](PAPERB_002_007_2026-10-31.md)
+
+## Earlier same-day follow-up — 001/006 candidate
 
 The merged research baseline is still **82 tests + five probes**. The earlier unmerged 004/005 candidate has **84 tests + six probes**. A new draft stacked on that candidate has **85 tests + seven probes**: **30 / 8 / 10 / 9 / 11 / 13 / 4** for 001–007.
 
@@ -12,7 +28,7 @@ Windows/Python 3.14.7 and 3.12.10 passed the full 85-test candidate and all seve
 
 These integration checks compare synthetic prefix, replayed and duplicate-tail states. They do not perform a process kill, database recovery or automatic repair. No new operating-record collection, market request, order, user trial or commercial validation occurred.
 
-Next proposed baseline: **85 tests + seven probes**, subject to review and integration. Next focus: **002 Report Generator / 007 Broker Adapter**. New candidate jobs returned no executed steps; the annotation reports payment/spending-limit ineligibility. Status is **CI pending — Actions limit**, with no successful remote CI.
+The earlier 001/006 plan proposed 85 tests/seven probes and a 002/007 focus; the later follow-up above supersedes that next-scope proposal. New candidate jobs returned no executed steps; the annotation reports payment/spending-limit ineligibility. Status is **CI pending — Actions limit**, with no successful remote CI.
 
 [001/006 follow-up details](PAPERB_001_006_2026-10-31.md)
 
