@@ -2,7 +2,15 @@
 
 PaperB is the isolated reusable-module research track within the existing Kanna repository. Its seven experiments cover ledger inspection, reports, event records, numeric risk checks, paired comparison, recovery reconciliation, and a minimal broker-adapter boundary.
 
-## November 1, 2026 — candidate CI verified; independent review pending
+## November 2, 2026 — reviewed bundle integrated
+
+The isolated research baseline is now **94 tests/eight probes plus 12 separate runner checks**. Independent AI review passed within documented bounds. Final candidate CI passed on Ubuntu/Windows × Python 3.11/3.12, with downloaded artifact/source verification and common PR CI success. The merged tree exactly matches that candidate; no operating adoption is implied.
+
+001/002/005/006 are test-verified for their reviewed contracts; 003/004/007 retain their previous states. User testing and commercial validation remain unverified. The next checkpoint is November 7, focused on 003/004.
+
+[Detailed review, scenario counts, repairs and integration evidence](PAPERB_REVIEW_2026-11-02.md)
+
+## November 1, 2026 — historical candidate CI and pending review
 
 The latest **unmerged** candidate now has successful dedicated experiment CI on **Ubuntu/Windows × Python 3.11/3.12**. Each of the four downloaded receipts contains **87 passing tests and eight probes**, and each job log separately records **ten runner-contract tests**. Artifact ZIP digests and executable-source equivalence were checked with an explicit LF/CRLF policy.
 

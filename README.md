@@ -4,7 +4,17 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
-## November 1, 2026 — PaperB candidate CI verified
+## November 2, 2026 — PaperB reviewed and integrated
+
+[Review, repairs and verified integration](docs/PAPERB_REVIEW_2026-11-02.md)
+
+- **Research baseline:** 94/94 tests, eight probes and 12 separate runner checks.
+- **Review:** three independent AI reviewers closed bounded scopes; initial failures and intermediate repair failures are retained.
+- **Final CI:** Ubuntu/Windows × Python 3.11/3.12 passed; four downloaded artifacts, exact source provenance and runner logs were verified. Common PR CI also passed.
+- **Integration:** the isolated research branch now contains the reviewed bundle; its tree matches the tested candidate. The dedicated workflow is paused again.
+- **Next:** November 7, focus 003/004. No operating adoption, user-tested or commercial-validation claim.
+
+## November 1, 2026 — historical PaperB candidate CI
 
 [Four-environment CI evidence and remaining review gate](docs/PAPERB_CI_2026-11-01.md)
 
@@ -120,7 +130,7 @@ Think remains a Markdown decision layer. Approval, bounded guarantees, implement
 
 PaperB is the small-module experiment track extracted from operating problems and recurring infrastructure patterns.
 
-**November 1 current checkpoint:** merged research baseline **82 tests/five probes**; latest **unmerged 87-test/eight-probe candidate** passed dedicated CI on Ubuntu/Windows × Python 3.11/3.12. Four artifact receipts and separate ten-test runner logs were checked. Independent review and merge remain pending; logic-verified states are unchanged. [CI evidence](docs/PAPERB_CI_2026-11-01.md) · [002/007 details](docs/PAPERB_002_007_2026-10-31.md).
+**November 2 current checkpoint:** the reviewed bundle is integrated into the isolated research branch. Baseline **94 tests/eight probes**, with **12 separate runner checks**; final dedicated Ubuntu/Windows × Python 3.11/3.12 CI and common PR CI passed. Three independent AI reviewers closed their bounded scopes, and the merged tree matches the tested candidate. 001/002/005/006 are test-verified within those contracts; user trials, commercial validation and operating adoption remain unverified. [Review and integration evidence](docs/PAPERB_REVIEW_2026-11-02.md).
 
 **Historical October 5 isolated Lab checkpoint:7 experiments / 72 tests, GPT001 27, declared weekly probe and runner 10; four-environment CI verified.** The October 3 independent rerun of 56 tests remains historical evidence. The new display fix received author review/testing and CI, without a new independent review or operating-main promotion.
 
