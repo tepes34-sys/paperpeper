@@ -4,6 +4,16 @@
 
 [October 5 approved work and validation](docs/WORKLOG_2026-10-05.md) · [Historical portfolio completion assessment](docs/PORTFOLIO_PROGRESS_2026-10-04.md) · [October 4, 2026 work and validation notes](docs/WORKLOG_2026-10-04.md) · [October 3, 2026 work and validation notes](docs/WORKLOG_2026-10-03.md) · [September 30, 2026 work notes](docs/WORKLOG_2026-09-30.md) · [Earlier paperpeper experiments and validation records](https://github.com/tepes34-sys/paperpeper/blob/216cefe28df3b909d9e50f3f8fc4b0497d918904/README.md)
 
+## November 7, 2026 — weekly safety work and remaining blockers
+
+[November 2–7 work, evidence and next gates](docs/WORKLOG_2026-11-07.md)
+
+- **Phase 2:** CI repair merged and all three required jobs passed. The final selected unused-protection observation pair is incomplete; activation, enabled observation and final result review remain pending.
+- **Phase 3:** reviewed S1–S4 and CI addition are in a draft PR. Windows and the live-trading guard passed; Linux client tests failed and need diagnosis before integration.
+- **Phase 4:** S1/S2 implementation rereviews, integration and CI completed. S3 plan passed, but implementation review failed with three major and one minor finding despite passing regression tests. Risk-gate activation remains pending.
+- **PaperB:** November 2 research integration retains the 94-test/eight-probe baseline plus 12 separate runner checks. The next stated focus is 003/004; a completed November 7 cycle is not claimed.
+- **Evidence boundary:** code placement, test/review results and actual enabled operation remain separate. Live trading stays disabled.
+
 ## November 2, 2026 — PaperB reviewed and integrated
 
 [Review, repairs and verified integration](docs/PAPERB_REVIEW_2026-11-02.md)
